@@ -1,0 +1,1495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <ModulePrefs
+    title="BirdTrax"
+    title_url="http://birdventure.blogspot.com/p/birdtrax.html"
+    screenshot="https://lh3.googleusercontent.com/-BOyMYXUaDVc/T_xbRaWZBPI/AAAAAAAAAxI/jFFdXz_1H2U/s512/thumbnail.png"
+    thumbnail ="https://lh4.googleusercontent.com/-MnM8-2KBL3I/T_x_w2AobbI/AAAAAAAAAyU/FztjPKnTfL0/s240/thumb.png"
+    scrolling="true"
+    height="400"
+    width="380"
+    author="Zachary DeBruine"
+    author_email="zacharydebruine@gmail.com"
+  description="Browse recent bird sightings, rarities, and checklists in your area, county, or state at lightening speed and with unprecedented ease!  Powered by eBird."
+    author_affiliation="Avid eBirder"
+    author_location="BirdTrax LLC, Grand Rapids, MI"
+    >
+    <Require feature="views" />    
+  </ModulePrefs>
+  <UserPref name="latlng" display_name="Lat-Lng Point:" default_value="42.461381, -76.50454" datatype="string" required="true"/>
+  <UserPref name="radius" display_name="Coverage Radius (km):" default_value="5" required="true" datatype="string" /> 
+  <UserPref name="daysBack" display_name="Look back:" default_value="7" required="true" datatype="enum">
+    <EnumValue value="1" display_value="1 day"/>
+    <EnumValue value="2" display_value="2 days"/>
+    <EnumValue value="3" display_value="3 days"/>
+    <EnumValue value="4" display_value="4 days"/>
+    <EnumValue value="5" display_value="5 days"/>
+    <EnumValue value="6" display_value="6 days"/>
+    <EnumValue value="7" display_value="1 week"/>
+    <EnumValue value="14" display_value="2 weeks"/>
+    <EnumValue value="21" display_value="3 weeks"/>
+    <EnumValue value="30" display_value="1 month"/>
+  </UserPref>
+  <UserPref name="locName" display_name="Location Name:" default_value="Stewart Park, Ithaca" datatype="string" required="true"/>
+  <UserPref name="districtName" display_name="County:" default_value="" datatype="string" required="false"/>
+  <UserPref name="State" display_name="State/Province:" default_value="New York" datatype="string" required="true"/>
+<UserPref name="countryCode" display_name="Country:" default_value="US" datatype="enum" required="true">
+<EnumValue value="US" display_value="United States"/>
+<EnumValue value="CA" display_value="Canada"/>
+<EnumValue value="AF" display_value="Afghanistan"/>
+<EnumValue value="AL" display_value="Albania"/>
+<EnumValue value="DZ" display_value="Algeria"/>
+<EnumValue value="AS" display_value="American Samoa"/>
+<EnumValue value="AD" display_value="Andorra"/>
+<EnumValue value="AO" display_value="Angola"/>
+<EnumValue value="AI" display_value="Anguilla"/>
+<EnumValue value="AQ" display_value="Antarctica"/>
+<EnumValue value="AG" display_value="Antigua and Barbuda"/>
+<EnumValue value="AR" display_value="Argentina"/>
+<EnumValue value="AM" display_value="Armenia"/>
+<EnumValue value="AW" display_value="Aruba"/>
+<EnumValue value="AU" display_value="Australia"/>
+<EnumValue value="AT" display_value="Austria"/>
+<EnumValue value="AZ" display_value="Azerbaijan"/>
+<EnumValue value="BS" display_value="Bahamas"/>
+<EnumValue value="BH" display_value="Bahrain"/>
+<EnumValue value="BD" display_value="Bangladesh"/>
+<EnumValue value="BB" display_value="Barbados"/>
+<EnumValue value="BY" display_value="Belarus"/>
+<EnumValue value="BE" display_value="Belgium"/>
+<EnumValue value="BZ" display_value="Belize"/>
+<EnumValue value="BJ" display_value="Benin"/>
+<EnumValue value="BM" display_value="Bermuda"/>
+<EnumValue value="BT" display_value="Bhutan"/>
+<EnumValue value="BO" display_value="Bolivia"/>
+<EnumValue value="BA" display_value="Bosnia and Herzegovina"/>
+<EnumValue value="BW" display_value="Botswana"/>
+<EnumValue value="BV" display_value="Bouvet Island"/>
+<EnumValue value="BR" display_value="Brazil"/>
+<EnumValue value="IO" display_value="British Indian Ocean Territory"/>
+<EnumValue value="BN" display_value="Brunei"/>
+<EnumValue value="BG" display_value="Bulgaria"/>
+<EnumValue value="BF" display_value="Burkina Faso"/>
+<EnumValue value="BI" display_value="Burundi"/>
+<EnumValue value="KH" display_value="Cambodia"/>
+<EnumValue value="CM" display_value="Cameroon"/>
+<EnumValue value="CV" display_value="Cape Verde"/>
+<EnumValue value="KY" display_value="Cayman Islands"/>
+<EnumValue value="CF" display_value="Central African Republic"/>
+<EnumValue value="TD" display_value="Chad"/>
+<EnumValue value="CL" display_value="Chile"/>
+<EnumValue value="CN" display_value="China"/>
+<EnumValue value="CX" display_value="Christmas Island"/>
+<EnumValue value="CC" display_value="Cocos (Keeling) Islands"/>
+<EnumValue value="CO" display_value="Colombia"/>
+<EnumValue value="KM" display_value="Comoros"/>
+<EnumValue value="CG" display_value="Congo"/>
+<EnumValue value="CK" display_value="Cook Islands"/>
+<EnumValue value="CR" display_value="Costa Rica"/>
+<EnumValue value="HR" display_value="Croatia"/>
+<EnumValue value="CU" display_value="Cuba"/>
+<EnumValue value="CY" display_value="Cyprus"/>
+<EnumValue value="CZ" display_value="Czech Republic"/>
+<EnumValue value="CI" display_value="Côte d'Ivoire"/>
+<EnumValue value="DK" display_value="Denmark"/>
+<EnumValue value="DJ" display_value="Djibouti"/>
+<EnumValue value="DM" display_value="Dominica"/>
+<EnumValue value="DO" display_value="Dominican Republic"/>
+<EnumValue value="EC" display_value="Ecuador"/>
+<EnumValue value="EG" display_value="Egypt"/>
+<EnumValue value="SV" display_value="El Salvador"/>
+<EnumValue value="GQ" display_value="Equatorial Guinea"/>
+<EnumValue value="ER" display_value="Eritrea"/>
+<EnumValue value="EE" display_value="Estonia"/>
+<EnumValue value="ET" display_value="Ethiopia"/>
+<EnumValue value="FK" display_value="Falkland Islands (Malvinas)"/>
+<EnumValue value="FO" display_value="Faroe Islands"/>
+<EnumValue value="FJ" display_value="Fiji"/>
+<EnumValue value="FI" display_value="Finland"/>
+<EnumValue value="FR" display_value="France"/>
+<EnumValue value="GF" display_value="French Guiana"/>
+<EnumValue value="PF" display_value="French Polynesia"/>
+<EnumValue value="TF" display_value="French Southern and Antarctic Lands"/>
+<EnumValue value="GA" display_value="Gabon"/>
+<EnumValue value="GM" display_value="Gambia"/>
+<EnumValue value="GE" display_value="Georgia"/>
+<EnumValue value="DE" display_value="Germany"/>
+<EnumValue value="GI" display_value="Gibraltar"/>
+<EnumValue value="GR" display_value="Greece"/>
+<EnumValue value="GL" display_value="Greenland"/>
+<EnumValue value="GU" display_value="Guam"/>
+<EnumValue value="GN" display_value="Guinea"/>
+<EnumValue value="GW" display_value="Guinea-Bissau"/>
+<EnumValue value="GY" display_value="Guyana"/>
+<EnumValue value="HT" display_value="Haiti"/>
+<EnumValue value="HN" display_value="Honduras"/>
+<EnumValue value="HU" display_value="Hungary"/>
+<EnumValue value="IS" display_value="Iceland"/>
+<EnumValue value="IN" display_value="India"/>
+<EnumValue value="ID" display_value="Indonesia"/>
+<EnumValue value="IR" display_value="Iran"/>
+<EnumValue value="IL" display_value="Israel"/>
+<EnumValue value="IT" display_value="Italy"/>
+<EnumValue value="JP" display_value="Japan"/>
+<EnumValue value="JO" display_value="Jordan"/>
+<EnumValue value="KE" display_value="Kenya"/>
+<EnumValue value="KR" display_value="South Korea"/>
+<EnumValue value="KW" display_value="Kuwait"/>
+<EnumValue value="KG" display_value="Kyrgyzstan"/>
+<EnumValue value="LV" display_value="Latvia"/>
+<EnumValue value="LB" display_value="Lebanon"/>
+<EnumValue value="LS" display_value="Lesotho"/>
+<EnumValue value="LR" display_value="Liberia"/>
+<EnumValue value="LI" display_value="Liechtenstein"/>
+<EnumValue value="LT" display_value="Lithuania"/>
+<EnumValue value="LU" display_value="Luxembourg"/>
+<EnumValue value="MO" display_value="Macau"/>
+<EnumValue value="MG" display_value="Madagascar"/>
+<EnumValue value="MY" display_value="Malaysia"/>
+<EnumValue value="MV" display_value="Maldives"/>
+<EnumValue value="ML" display_value="Mali"/>
+<EnumValue value="MR" display_value="Mauritania"/>
+<EnumValue value="MU" display_value="Mauritius"/>
+<EnumValue value="YT" display_value="Mayotte"/>
+<EnumValue value="MX" display_value="Mexico"/>
+<EnumValue value="MD" display_value="Moldova"/>
+<EnumValue value="MC" display_value="Monaco"/>
+<EnumValue value="MN" display_value="Mongolia"/>
+<EnumValue value="MS" display_value="Montserrat"/>
+<EnumValue value="MA" display_value="Morocco"/>
+<EnumValue value="MZ" display_value="Mozambique"/>
+<EnumValue value="NA" display_value="Namibia"/>
+<EnumValue value="NP" display_value="Nepal"/>
+<EnumValue value="NL" display_value="Netherlands"/>
+<EnumValue value="NZ" display_value="New Zealand"/>
+<EnumValue value="NI" display_value="Nicaragua"/>
+<EnumValue value="BL" display_value="Saint Barthélemy"/>
+<EnumValue value="TL" display_value="Timor-Leste"/>
+<EnumValue value="RS" display_value="Serbia"/>
+<EnumValue value="ME" display_value="Montenegro"/>
+<EnumValue value="AX" display_value="Åland Islands"/>
+<EnumValue value="GG" display_value="Guernsey"/>
+<EnumValue value="IM" display_value="Isle of Man"/>
+<EnumValue value="JE" display_value="Jersey"/>
+<EnumValue value="MF" display_value="Saint Martin (French part)"/>
+<EnumValue value="PS" display_value="Palestinian Territory"/>
+<EnumValue value="CP" display_value="Clipperton Island"/>
+<EnumValue value="GP" display_value="Guadeloupe"/>
+<EnumValue value="HK" display_value="Hong Kong"/>
+<EnumValue value="IE" display_value="Ireland"/>
+<EnumValue value="KI" display_value="Kiribati"/>
+<EnumValue value="LA" display_value="Laos"/>
+<EnumValue value="MW" display_value="Malawi"/>
+<EnumValue value="MH" display_value="Marshall Islands"/>
+<EnumValue value="MM" display_value="Myanmar"/>
+<EnumValue value="NC" display_value="New Caledonia"/>
+<EnumValue value="NE" display_value="Niger"/>
+<EnumValue value="NG" display_value="Nigeria"/>
+<EnumValue value="MP" display_value="Northern Mariana Islands"/>
+<EnumValue value="NO" display_value="Norway"/>
+<EnumValue value="OM" display_value="Oman"/>
+<EnumValue value="PW" display_value="Palau"/>
+<EnumValue value="PA" display_value="Panama"/>
+<EnumValue value="PG" display_value="Papua New Guinea"/>
+<EnumValue value="PY" display_value="Paraguay"/>
+<EnumValue value="PE" display_value="Peru"/>
+<EnumValue value="PN" display_value="Pitcairn Islands"/>
+<EnumValue value="PL" display_value="Poland"/>
+<EnumValue value="PT" display_value="Portugal"/>
+<EnumValue value="PR" display_value="Puerto Rico"/>
+<EnumValue value="QA" display_value="Qatar"/>
+<EnumValue value="RU" display_value="Russia"/>
+<EnumValue value="RE" display_value="Réunion"/>
+<EnumValue value="SH" display_value="Saint Helena, Ascension, and Tristan da Cunha"/>
+<EnumValue value="LC" display_value="Saint Lucia"/>
+<EnumValue value="PM" display_value="Saint Pierre and Miquelon"/>
+<EnumValue value="VC" display_value="Saint Vincent and the Grenadines"/>
+<EnumValue value="WS" display_value="Samoa"/>
+<EnumValue value="SM" display_value="San Marino"/>
+<EnumValue value="ST" display_value="São Tomé and Príncipe"/>
+<EnumValue value="SA" display_value="Saudi Arabia"/>
+<EnumValue value="SN" display_value="Senegal"/>
+<EnumValue value="SC" display_value="Seychelles"/>
+<EnumValue value="SL" display_value="Sierra Leone"/>
+<EnumValue value="SG" display_value="Singapore"/>
+<EnumValue value="SK" display_value="Slovakia"/>
+<EnumValue value="SI" display_value="Slovenia"/>
+<EnumValue value="SB" display_value="Solomon Islands"/>
+<EnumValue value="SO" display_value="Somalia"/>
+<EnumValue value="ZA" display_value="South Africa"/>
+<EnumValue value="GS" display_value="South Georgia and South Sandwich Islands"/>
+<EnumValue value="ES" display_value="Spain"/>
+<EnumValue value="LK" display_value="Sri Lanka"/>
+<EnumValue value="SD" display_value="Sudan"/>
+<EnumValue value="SR" display_value="Suriname"/>
+<EnumValue value="SJ" display_value="Svalbard"/>
+<EnumValue value="SZ" display_value="Swaziland"/>
+<EnumValue value="SE" display_value="Sweden"/>
+<EnumValue value="CH" display_value="Switzerland"/>
+<EnumValue value="SY" display_value="Syria"/>
+<EnumValue value="TW" display_value="Taiwan"/>
+<EnumValue value="TJ" display_value="Tajikistan"/>
+<EnumValue value="TZ" display_value="Tanzania"/>
+<EnumValue value="TH" display_value="Thailand"/>
+<EnumValue value="TG" display_value="Togo"/>
+<EnumValue value="TK" display_value="Tokelau"/>
+<EnumValue value="TO" display_value="Tonga"/>
+<EnumValue value="TT" display_value="Trinidad and Tobago"/>
+<EnumValue value="TN" display_value="Tunisia"/>
+<EnumValue value="TR" display_value="Turkey"/>
+<EnumValue value="TM" display_value="Turkmenistan"/>
+<EnumValue value="TC" display_value="Turks and Caicos Islands"/>
+<EnumValue value="TV" display_value="Tuvalu"/>
+<EnumValue value="UG" display_value="Uganda"/>
+<EnumValue value="UA" display_value="Ukraine"/>
+<EnumValue value="AE" display_value="United Arab Emirates"/>
+<EnumValue value="GB" display_value="United Kingdom"/>
+<EnumValue value="UY" display_value="Uruguay"/>
+<EnumValue value="UZ" display_value="Uzbekistan"/>
+<EnumValue value="VU" display_value="Vanuatu"/>
+<EnumValue value="VA" display_value="Vatican City (Holy See)"/>
+<EnumValue value="VE" display_value="Venezuela"/>
+<EnumValue value="VN" display_value="Vietnam"/>
+<EnumValue value="VG" display_value="Virgin Islands (British)"/>
+<EnumValue value="VI" display_value="Virgin Islands (U.S.)"/>
+<EnumValue value="WF" display_value="Wallis and Futuna"/>
+<EnumValue value="EH" display_value="Western Sahara"/>
+<EnumValue value="YE" display_value="Yemen"/>
+<EnumValue value="ZM" display_value="Zambia"/>
+<EnumValue value="ZW" display_value="Zimbabwe"/>
+<EnumValue value="MK" display_value="Macedonia"/>
+<EnumValue value="GH" display_value="Ghana"/>
+<EnumValue value="GD" display_value="Grenada"/>
+<EnumValue value="GT" display_value="Guatemala"/>
+<EnumValue value="IQ" display_value="Iraq"/>
+<EnumValue value="JM" display_value="Jamaica"/>
+<EnumValue value="KZ" display_value="Kazakhstan"/>
+<EnumValue value="KP" display_value="North Korea"/>
+<EnumValue value="LY" display_value="Libya"/>
+<EnumValue value="MT" display_value="Malta"/>
+<EnumValue value="MQ" display_value="Martinique"/>
+<EnumValue value="FM" display_value="Micronesia"/>
+<EnumValue value="NR" display_value="Nauru"/>
+<EnumValue value="AN" display_value="Netherlands Antilles"/>
+<EnumValue value="NU" display_value="Niue"/>
+<EnumValue value="NF" display_value="Norfolk Island"/>
+<EnumValue value="PH" display_value="Philippines"/>
+<EnumValue value="RO" display_value="Romania"/>
+<EnumValue value="RW" display_value="Rwanda"/>
+<EnumValue value="KN" display_value="Saint Kitts and Nevis"/>
+<EnumValue value="UM" display_value="United States Minor Outlying Islands"/>
+<EnumValue value="CD" display_value="DR Congo"/>
+<EnumValue value="HM" display_value="Heard Island and McDonald Islands"/>
+<EnumValue value="PK" display_value="Pakistan"/>
+</UserPref>
+  <UserPref name="defaultMode" display_name="Range" default_value="area" datatype="enum" required="true">
+    <EnumValue value="area" display_value="Area Radius" />
+    <EnumValue value="county" display_value="County" />
+    <EnumValue value="state" display_value="State/Province" />
+  </UserPref> 
+  <UserPref name="defaultview" display_name="Default view:" datatype="enum" default_value="sightings" required="true" >
+    <EnumValue value="sightings" display_value="Sightings"/>
+    <EnumValue value="rarities" display_value="Rarities"/>
+    <EnumValue value="checklists" display_value="Checklists"/>
+  </UserPref> 
+  <UserPref name="spuhs" display_name="Show spuhs?" default_value="false" datatype="bool" required="true" />
+  <UserPref name="picture" display_name="Show picture?" default_value="true" datatype="bool" required="true" />
+  <UserPref name="hideNavMenu" display_name="Hide Navigation Menu?" default_value="false" datatype="bool" required="true" />
+  <UserPref name="showhide" display_name="Show/hide entered species?" required="true" datatype="enum" default_value="2" >
+    <EnumValue value="3" display_value="do nothing"/>
+    <EnumValue value="1" display_value="show"/>
+    <EnumValue value="2" display_value="hide"/>
+  </UserPref>
+  <UserPref name="locale" display_name="Language/Locale" required="true" datatype="enum" default_value="enXXUS" >
+    <EnumValue value="enXXUS" display_value="English (US)" />
+    <EnumValue value="enXXNZ" display_value="English (NZ)" />
+    <EnumValue value="fr" display_value="Francais" />
+    <EnumValue value="frXXCA" display_value="Francais (CA)" />
+    <EnumValue value="frXXHT" display_value="Francais (HT)" />
+    <EnumValue value="htXXHT" display_value="Haitian (HT)" />
+    <EnumValue value="es" display_value="Espanol" />
+    <EnumValue value="esXXCL" display_value="Espanol (CL)" />
+    <EnumValue value="esXXMX" display_value="Espanol (MX)" />
+    <EnumValue value="esXXPR" display_value="Espanol (PR)" />
+    <EnumValue value="esXXCU" display_value="Espanol (CU)" />
+    <EnumValue value="esXXPA" display_value="Espanol (PA)" />
+    <EnumValue value="esXXDO" display_value="Espanol (DO)" />
+</UserPref>
+  <UserPref name="hide2" display_name="Enter species (comma-separated)" datatype="string" required="false" default_value="european starling, house sparrow, rock pigeon" />
+  <Content type="html" view="home">
+      <![CDATA[
+
+<style type="text/css">
+table {font-size:75%;font-family:calibri,arial,times;}
+#content_div{width:100%;height:100%;font-family:calibri;}
+#headerbar{width:100%;background:rgb(248,251,252);border-bottom:rgb(191,191,191) 1px solid;font-weight:bold;font-size:80%;}
+#titlebar{width:100%;background:rgb(215,228,189);font-size:80%;}
+#titlebar td{margin:0px;padding:2px;text-align:center;font-family:calibri,arial;font-weight:bold;}
+#classinfobar{width:100%;background:rgb(254,254,254);}
+#classinfobar td{margin:0px;padding:2px;font-size:1.1em;}
+#infobar{width:100%;font-family:calibri,arial;font-size:.95em;}
+.headermenu{margin:0px;padding:1px;font-family:calibri,arial;vertical-align:middle;text-align:center;cursor:pointer;font-size:1em;}
+.headermenu:hover{background:rgb(235,238,239);}
+#sightings{width:33%;}
+#rarities{width:33%;}
+#checklists{width:33%;}
+#imgicon{height:70px;width:70px;position:absolute;top:0px;right:0px;z-index:99;}
+.row1{background:rgb(248,248,248);width:100%;}
+.row1 td{font-family:calibri,arial;padding:2px;}
+.row2{background:rgb(253,253,253);width:100%;}
+.row2 td{font-family:calibri,arial;padding:2px;}
+.count{width:8%;text-align:right;}
+.species{width:42%;cursor:pointer;}
+.species:hover {color:rgb(63,140,68);}
+.location:hover {color:rgb(63,140,68);}
+.location{width:50%;cursor:pointer;}
+#footer{width:100%;border-top:black 1px solid;margin:0px;padding:0px;font-family:calibri,arial;font-size:75%;text-align:center;background:rgb(248,251,252);}
+#popup_box{width:84%;background:rgb(254,253,249);position:fixed;left:8%;right:8%;top:18%;z-index:507;box-shadow: 7px 7px 7px rgb(170,170,170);border:rgb(160,160,160) 1px solid;padding:2px;font-family:calibri,arial;visibility:hidden;}
+.popup_table{width:100%;padding:3px;vertical-align:top;}
+.popup_table td{padding:2px;vertical-align:top;}
+#popup_box_x{width:25px;height:25px;font-family:calibri,arial;font-weight:bold;font-size:125%;position:absolute;color:red;text-align:center;right:0px;top:0px;padding:3px;cursor:pointer;}
+#popup_box_background{width:100%;height:100%;background:rgb(135,135,135);position:fixed;top:0px;bottom:0px;right:0px;left:0px;opacity:0.4;filter:alpha(opacity=40);z-index:5;visibility:hidden;}
+#popup_box_loading{z-index:8;color:white;font-weight:bold;font-size:105%;visibility:hidden;position:absolute;width:20%;left:40%;right:40%;top:40%;background:rgb(135,135,135);opacity:0.7;filter:alpha(opacity=70);padding:20px;text-align:center;}
+.popup_img{height:30px;width:30px;cursor:pointer;}
+#progress_bar{width:50%;height:5px;border:rgb(235,235,235) 1px solid;box-shadow:1px 1px 2px rgb(220,220,220);background:rgb(250,250,250);padding:0px;text-align:left;border-radius:4px;}
+#progress_meter{width:1%;height:100%;background:rgb(80,230,80);border-radius:4px;}
+#loadingBox{padding:20px;font-family:calibri;color:black;font-weight:bold;border-radius:5px;background:rgb(248,251,252);opacity:0.5;filter:alpha(opacity=50);z-index:12;position:fixed;width:20%;left:40%;height:40%;visibility:hidden;}
+.plus{font-weight:bold;color:rgb(187,178,135);}
+.plus:hover{color:rgb(165,150,95);text-shadow:2px 2px 1px rgb(230,230,230);cursor:pointer;} 
+#backSpan{font-family:calibri;padding:2px;cursor:pointer;}
+#backSpan:hover {color:rgb(63,140,68);}
+</style>
+
+<span id='forimgicon'></span>
+<table id="headerbar">
+  <tr id='tr'>
+    <td><a href="http://www.birdventurebirding.com/p/birdtrax.html" target="_blank"><img src="https://lh5.googleusercontent.com/-NP-5rYxdtL4/T_ugs_qa5uI/AAAAAAAAAwg/nws58tUznJ0/s110/logo.png" style="height:20px;cursor:pointer;" /></a></td>
+    <td id="sightings" class="headermenu" onclick="displayArea()">Sightings</td> 
+    <td id="rarities" class="headermenu" onclick="displayRarities()">Rarities</td> 
+    <td id="checklists" class="headermenu" onclick="helpNotify()">Checklists</td>
+  </tr>
+</table>
+<table id="titlebar"><tr><td><span id="location_div" style="width:100%;">Starting Up</span></td><td style="width:80px;">&nbsp;</td></tr></table>
+<table id="classinfobar"><tr><td><span id="infobar"></span>&nbsp;<span id="back" onclick='back()' style='font-family:calibri;'></span></td></tr></table>
+<div id="content_div"></div>
+<div id="loadingBox">Loading</div>
+<div id="popup_box_background"></div><div id="popup_box"></div><div id="popup_box_loading">Loading...</div>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+// ----------------------------------------------------------------------------------------------------- OnLoad GENERATE IMAGE
+
+function generateImage(){
+_gel("location_div").innerHTML="Loading...";
+if(hideNavMenu==true){
+_gel("headerbar").innerHTML="<tr><td><img src='https://lh5.googleusercontent.com/-NP-5rYxdtL4/T_ugs_qa5uI/AAAAAAAAAwg/nws58tUznJ0/s110/logo.png' style='height:20px;' /></td><td style='text-align:left;width:100%;'>&nbsp;" + defaultView + "</td></tr>";
+}
+var date = new Date();
+var d = date.getDate();
+if(picture==true){
+if(hideNavMenu==false){
+_gel('tr').innerHTML+='<td style="width:80px;">&nbsp;</td>';
+_gel('sightings').style.width="17%";
+_gel('rarities').style.width="17%";
+_gel('checklists').style.width="17%"; 
+}
+_gel('forimgicon').innerHTML='<img id="imgicon" />';
+if(d==1||d==26){_gel("imgicon").src="https://lh4.googleusercontent.com/-f7Hk0Xleem0/T8lJ2fIhz_I/AAAAAAAAArE/tCY6yhAk9PU/s299/b1.png";}
+if(d==2){_gel("imgicon").src="https://lh4.googleusercontent.com/-1bqHr-fhj14/T8lJ1gOkekI/AAAAAAAAAq8/5OaQybaTH5s/s299/b10.png";}
+if(d==3){_gel("imgicon").src="https://lh4.googleusercontent.com/-bJVynX7ifOM/T8lJyqoAWMI/AAAAAAAAAq0/L_B0Drjmt1U/s299/b11.png";}
+if(d==4||d==18){_gel("imgicon").src="https://lh3.googleusercontent.com/-5THaJHdZEJo/T8lKUXJIs7I/AAAAAAAAAsE/Ptkj4TCC4ww/s299/b2.png";}  
+if(d==5){_gel("imgicon").src="https://lh5.googleusercontent.com/-bpGvdbqK79s/T8lJ8vRVRYI/AAAAAAAAArM/ILXlDVBy_VA/s299/b13.png";}
+if(d==6||d==27){_gel("imgicon").src="https://lh3.googleusercontent.com/-eJ-08WgQfcw/T8lKBwkOkrI/AAAAAAAAArc/sxxVfj3pU-g/s298/b14.png";}
+if(d==7){_gel("imgicon").src="https://lh5.googleusercontent.com/-7AQIMiV90z8/T8lKFfLqDNI/AAAAAAAAArk/Jut12DzIDgA/s299/b15.png";}
+if(d==8||d==28){_gel("imgicon").src="https://lh3.googleusercontent.com/-t7NOwsUui50/T8lKKjavkBI/AAAAAAAAArs/QcZ0hq-TYtY/s299/b16.png";}
+if(d==9){_gel("imgicon").src="https://lh3.googleusercontent.com/-SIsa89W0N_A/T8lKO96SBiI/AAAAAAAAAr0/KWD5K_E_JtU/s298/b18.png";}
+if(d==10){_gel("imgicon").src="https://lh4.googleusercontent.com/-rLnQ_dMr0_w/T8lKR5f7P6I/AAAAAAAAAr8/PTMGx7_ZP5M/s295/b19.png";}
+if(d==11){_gel("imgicon").src="https://lh6.googleusercontent.com/-Qj3dOkQ3HH4/T8lJ81Jx1GI/AAAAAAAAArU/rXUJU6z4ZLk/s298/b12.png";} 
+if(d==12){_gel("imgicon").src="https://lh5.googleusercontent.com/-AnMBVkcZvFA/T8lKZl9NiII/AAAAAAAAAsU/QuhHdJ0vmNE/s299/b20.png";} 
+if(d==13){_gel("imgicon").src="https://lh4.googleusercontent.com/-GLh8OnAJ7VI/T8lKZJsmQ9I/AAAAAAAAAsM/pKeLa2HNb70/s299/b21.png";} 
+if(d==14){_gel("imgicon").src="https://lh6.googleusercontent.com/-_BD22kHqRMU/T8lKc_A5ZHI/AAAAAAAAAsc/Javm5uSuofc/s299/b22.png";}
+if(d==15){_gel("imgicon").src="https://lh5.googleusercontent.com/-M5a_8TV3Gjo/T8lKnMBDcPI/AAAAAAAAAsk/jM76pFETblU/s299/b23.png";}
+if(d==16){_gel("imgicon").src="https://lh5.googleusercontent.com/-Py1vTgNnh5Q/T8lKo0HgxEI/AAAAAAAAAss/I8dD29yn6i0/s298/b24.png";} 
+if(d==17){_gel("imgicon").src="https://lh5.googleusercontent.com/-K9yhSDPQdkU/T8lKo2i43kI/AAAAAAAAAsw/AkcwC4wxMOc/s298/b3.png";}
+if(d==25){_gel("imgicon").src="https://lh3.googleusercontent.com/-ZoH06ecwP-0/T8lKuOzd1LI/AAAAAAAAAs8/twvo7tJYLGo/s299/b4.png";}
+if(d==19||d==29){_gel("imgicon").src="https://lh6.googleusercontent.com/-tKVK9QiXq_A/T8lKvWnXuWI/AAAAAAAAAtE/1sj6-aUm4JU/s299/b5.png";}
+if(d==20){_gel("imgicon").src="https://lh6.googleusercontent.com/-KB7zsQFh7f8/T8lKzWnrmiI/AAAAAAAAAtM/4FaSUatfyzg/s299/b6.png";}
+if(d==21){_gel("imgicon").src="https://lh3.googleusercontent.com/-SDEpwNVtX2Y/T8lK6Mpp-VI/AAAAAAAAAtc/BFBs4lqPFKU/s298/b7.png";}
+if(d==22){_gel("imgicon").src="https://lh3.googleusercontent.com/-QDYzOXN6bh0/T8lK5aT0uSI/AAAAAAAAAtU/VK0PqcyyU7w/s299/b8.png";} 
+if(d==23||d==31){_gel("imgicon").src="https://lh6.googleusercontent.com/-E0m9DjbCTK8/T8lK82HxDVI/AAAAAAAAAtk/Q7gGgTZjlC0/s299/b9.png";}
+if(d==24){_gel("imgicon").src="https://lh4.googleusercontent.com/-kQbwPnEJn2Y/T8lQL8mz-dI/AAAAAAAAAt4/dy-zSeEaAuI/s298/b17.png";}
+if(d==30){_gel("imgicon").src="https://lh6.googleusercontent.com/-P2bzJZrBWJs/T25V5UTKfQI/AAAAAAAAAog/fITOm-g4wKg/s167/Picture1.png";}
+
+}
+if(defaultView=="sightings"){displayArea();}
+if(defaultView=="rarities"){displayRarities();}
+if(defaultView=="checklists"){helpNotify();}
+}
+
+
+// ----------------------------------------------------------------------------------------------------- GET USER PREFS
+
+var prefs = new _IG_Prefs(__MODULE_ID__);
+//Retrieve user prefrences
+var latlng = prefs.getString("latlng").replace(" ","").replace(" ","").replace(" ","").replace(" ","");
+var latitude = latlng.substring(0,(latlng.indexOf("."))+3);
+var longitude = latlng.substring(latlng.indexOf(",")+1,(latlng.lastIndexOf("."))+3); 
+var radius = prefs.getString("radius");
+var daysBack = prefs.getInt("daysBack");
+var showhide = prefs.getInt("showhide");
+var spuhs = prefs.getBool("spuhs");
+var title = prefs.getString("locName");
+var hidestring = prefs.getString("hide2");
+var hide = hidestring.split(',');
+var picture = prefs.getBool("picture");
+var districtName = prefs.getString("districtName");
+var regionName = prefs.getString("State");
+var countryCode = prefs.getString("countryCode");
+var locale = prefs.getString("locale").replace("XX","_");
+var defaultMode = prefs.getString("defaultMode");
+var hideNavMenu = prefs.getBool("hideNavMenu");
+var defaultView = prefs.getString("defaultview");
+var mainChecklistDisplay="Oops!  That's an error.  Try reloading the gadget/webpage...";
+var sub1Code;
+var sub2Code;
+if(regionName.length==2){sub1Code=regionName;}
+if(regionName.length==5&&regionName.indexOf("-")>0){sub1Code=regionName;}
+var popupDate = ""; // establish global variable
+var popupLastName = ""; // establish global variable to compare later
+var popupFirstName = ""; // establish global variable to compare later
+
+// ----------------------------------------------------------------------------------------------------- SIGHTINGS:  GENERATE URL TO REQUEST
+
+function displayNearby(sciname,comname){
+var sciname = sciname.replace(" ","%20");
+var url="";
+if(defaultMode=="area"){url="http://ebird.org/ws1.1/data/obs/geo_spp/recent?lng=" + longitude + "&lat=" + latitude + "&sci=" + sciname + "&dist=" + radius + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;}
+if(defaultMode=="county"){url = "http://ebird.org/ws1.1/data/obs/region_spp/recent?rtype=subnational2&r=" + sub2Code + "&sci=" + sciname + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;}
+if(defaultMode=="state"){url = "http://ebird.org/ws1.1/data/obs/region_spp/recent?rtype=subnational1&r=" + sub1Code + "&sci=" + sciname + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;}
+_gel("location_div").innerHTML=comname;
+_IG_FetchXmlContent(url, callbackArea, { refreshInterval: (60) }); 
+}
+
+function displayLocation(locid,locname){
+var url="http://ebird.org/ws1.1/data/obs/loc/recent?r=" + locid + "&back=" + daysBack + "&detail=simple&includeProvisional=true&locale=" + locale;
+_gel("location_div").innerHTML=locname;
+_IG_FetchXmlContent(url, callbackArea, { refreshInterval: (60) }); 
+} 
+
+function displayArea() {
+if(hideNavMenu==false){
+  _gel("sightings").style.background="rgb(235,238,239)";
+  _gel("rarities").style.background="rgb(248,251,252)";
+  _gel("checklists").style.background="rgb(248,251,252)";
+}
+if(defaultMode=="area"){
+  var url = "http://ebird.org/ws1.1/data/obs/geo/recent?lng=" + longitude + "&lat=" + latitude + "&dist=" + radius + "&back=" + daysBack + "&locale=" + locale + "&fmt=xml";
+  _gel('location_div').innerHTML = title;
+  _IG_FetchXmlContent(url, callbackArea, { refreshInterval: (60) });
+}
+if(sub1Code!="undefined"&&sub1Code!=null&&sub1Code!=""){
+if(defaultMode=="state"){
+var url="http://ebird.org/ws1.1/data/obs/region/recent?rtype=subnational1&r=" + sub1Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
+_gel('location_div').innerHTML = regionName + ", " + countryCode;
+_IG_FetchXmlContent(url, callbackArea, { refreshInterval: (60) }); 
+}
+else if(defaultMode=="county"){
+var url = "http://ebird.org/ws1.1/data/obs/region/recent?rtype=subnational2&r=" + sub2Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
+_gel('location_div').innerHTML = districtName + ", " + sub1Code.substring(3,5); 
+_IG_FetchXmlContent(url, callbackArea, { refreshInterval: (60) }); 
+}
+}
+else if(defaultMode=="county"||defaultMode=="state"){displayCounty();}
+}
+
+function displayCounty(){
+_gel("location_div").innerHTML="Loading Sightings";
+var url = "http://ebird.org/ws1.1/ref/location/find?rtype=subnational1&match=" + regionName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
+_IG_FetchXmlContent(url, callbackSubnational1CodeCounty, { refreshInterval: (60) });
+}
+function callbackSubnational1CodeCounty(response){
+var itemList = response.getElementsByTagName("result");
+for(var i = 0;i<itemList.length; i++){
+  var d = getDataSub1(itemList.item(i));
+  for(var k in d){
+    if (d[k].country==countryCode&&d[k].value==regionName){sub1Code = d[k].sub1;}
+  }
+}
+if(defaultMode=="county"){ 
+var url = "http://ebird.org/ws1.1/ref/location/find?rtype=subnational2&match=" + districtName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
+_IG_FetchXmlContent(url, callbackCodes, { refreshInterval: (60) }); 
+}
+if(defaultMode=="state"){
+var url="http://ebird.org/ws1.1/data/obs/region/recent?rtype=subnational1&r=" + sub1Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
+_gel('location_div').innerHTML = regionName + ", " + countryCode;
+_IG_FetchXmlContent(url, callbackArea, { refreshInterval: (60) });
+}
+}
+function callbackCodes(response){
+   var itemList = response.getElementsByTagName("result");  
+  for(var i = 0;i<itemList.length; i++){
+    var d = getDataCodes(itemList.item(i));  
+    for(var k in d){
+     if(d[k].sub1==sub1Code&&d[k].value==districtName){sub2Code = d[k].sub2;}
+    }
+  }
+  var url = "http://ebird.org/ws1.1/data/obs/region/recent?rtype=subnational2&r=" + sub2Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
+  _gel('location_div').innerHTML = districtName + ", " + sub1Code.substring(3,5); 
+  _IG_FetchXmlContent(url, callbackArea, { refreshInterval: (60) });
+}
+
+// ----------------------------------------------------------------------------------------------------- RARITIES:  GENERATE URL TO PROCESS
+
+function displayRarities(){
+if(hideNavMenu==false){
+  _gel("rarities").style.background="rgb(235,238,239)";
+  _gel("sightings").style.background="rgb(248,251,252)";
+  _gel("checklists").style.background="rgb(248,251,252)";
+}
+if(defaultMode=="area"){
+var url = "http://ebird.org/ws1.1/data/notable/geo/recent?lng=" + longitude + "&lat=" + latitude + "&dist=" + radius + "&back=" + daysBack + "&detail=full&locale=" + locale;
+_gel('location_div').innerHTML = title;
+_IG_FetchXmlContent(url, callbackRarities, { refreshInterval: (60) }); 
+}
+if(sub1Code!="undefined"&&sub1Code!=null&&sub1Code!=""){
+if(defaultMode=="state"){
+var url = "http://ebird.org/ws1.1/data/notable/region/recent?rtype=subnational1&r=" + sub1Code + "&detail=full&back=" + daysBack + "&locale=" + locale + "&fmt=xml";
+_gel("location_div").innerHTML = regionName + ", " + countryCode;
+_IG_FetchXmlContent(url, callbackRarities, { refreshInterval: (60) }); 
+}
+else if(defaultMode=="county"){
+var url = "http://ebird.org/ws1.1/data/notable/region/recent?rtype=subnational2&r=" + sub2Code + "&detail=full&back=" + daysBack + "&locale=" + locale + "&fmt=xml";
+_gel('location_div').innerHTML = districtName + ", " + sub1Code.substring(3,5);
+_IG_FetchXmlContent(url, callbackRarities, { refreshInterval: (60) }); }
+}
+else if(defaultMode=="county"||defaultMode=="state"){
+ _gel("location_div").innerHTML="Loading Rarities";
+var url = "http://ebird.org/ws1.1/ref/location/find?rtype=subnational1&match=" + regionName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
+_IG_FetchXmlContent(url, callbackSubnational1CodeRarity, { refreshInterval: (60) }); 
+}
+} 
+
+function callbackSubnational1CodeRarity(response){
+var itemList = response.getElementsByTagName("result");
+for(var i = 0;i<itemList.length; i++){
+  var d = getDataSub1(itemList.item(i));
+  for(var k in d){
+    if (d[k].country==countryCode&&d[k].value==regionName){sub1Code = d[k].sub1;}
+  }
+} 
+if(defaultMode=="county"){
+var url = "http://ebird.org/ws1.1/ref/location/find?rtype=subnational2&match=" + districtName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
+_IG_FetchXmlContent(url, callbackCodesRarity, { refreshInterval: (60) }); 
+}
+if(defaultMode=="state"){
+var url = "http://ebird.org/ws1.1/data/notable/region/recent?rtype=subnational1&r=" + sub1Code + "&detail=full&back=" + daysBack + "&locale=" + locale + "&fmt=xml";
+_gel("location_div").innerHTML = regionName + ", " + countryCode;
+_IG_FetchXmlContent(url, callbackRarities, { refreshInterval: (60) }); 
+} 
+}
+function callbackCodesRarity(response){
+   var itemList = response.getElementsByTagName("result");  
+  for(var i = 0;i<itemList.length; i++){
+    var d = getDataCodes(itemList.item(i));  
+    for(var k in d){
+     if(d[k].sub1==sub1Code&&d[k].value==districtName){sub2Code = d[k].sub2;}
+    }
+  }
+var url = "http://ebird.org/ws1.1/data/notable/region/recent?rtype=subnational2&r=" + sub2Code + "&detail=full&back=" + daysBack + "&locale=" + locale + "&fmt=xml";
+_gel('location_div').innerHTML = districtName + ", " + sub1Code.substring(3,5);
+ _IG_FetchXmlContent(url, callbackRarities, { refreshInterval: (60) });
+}
+
+// ----------------------------------------------------------------------------------------------------- CHECKLISTS:  AREA
+
+var genchecklists = new Array();
+var checklists = new Array();
+_gel('infobar').innerHTML="";
+var iterations=0; 
+
+function checklistArea(){
+if(defaultMode=="area"){_gel("location_div").innerHTML=title;}
+if(defaultMode=="county"){_gel("location_div").innerHTML=title;}
+if(defaultMode=="state"){_gel("location_div").innerHTML=title;}
+if(hideNavMenu==false){
+_gel("checklists").style.background="rgb(235,238,239)";
+_gel("rarities").style.background="rgb(248,251,252)";
+_gel("sightings").style.background="rgb(248,251,252)";
+}
+if(checklists.length==0){
+_gel('content_div').innerHTML="<div style='position:absolute;width:100%;top:100px;text-align:center;font-family:calibri;'><img src='https://lh5.googleusercontent.com/-vMBrUl91FcA/T8jSnroaQuI/AAAAAAAAAp4/djSHKDYwFvM/s32/downloading.gif' /><br /><br /><span id='textupdate' style='font-family:calibri;'>Download<br />Initializing</span><br /><br /><center><div id='progress_bar'><div id='progress_meter'></div></div></center></div>";
+if(defaultMode=="area"){
+var url="http://ebird.org/ws1.1/data/obs/geo/recent?lng=" + longitude + "&lat=" + latitude + "&dist=" + radius + "&back=" + daysBack + "&locale=" + locale + "&fmt=xml";
+_IG_FetchXmlContent(url, checklistArea2, { refreshInterval: (60) });
+}
+if(sub1Code!="undefined"&&sub1Code!=null&&sub1Code!=""){
+if(defaultMode=="state"){
+var url="http://ebird.org/ws1.1/data/obs/region/recent?rtype=subnational1&r=" + sub1Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
+_IG_FetchXmlContent(url, checklistArea2, { refreshInterval: (60) });
+}
+else if(defaultMode=="county"){
+var url = "http://ebird.org/ws1.1/data/obs/region/recent?rtype=subnational2&r=" + sub2Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
+_IG_FetchXmlContent(url, checklistArea2, { refreshInterval: (60) });
+}
+else if(defaultMode=="county"||defaultMode=="state"){checklistCodeFunctions();}
+}
+}
+else{_gel("content_div").innerHTML=mainChecklistDisplay;}
+}
+
+function checklistCodeFunctions(){
+_gel("location_div").innerHTML="Loading Checklists";
+var url = "http://ebird.org/ws1.1/ref/location/find?rtype=subnational1&match=" + regionName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
+_IG_FetchXmlContent(url, callbackSubnational1CodeChecklist, { refreshInterval: (60) });
+}
+function callbackSubnational1CodeChecklist(response){
+var itemList = response.getElementsByTagName("result");
+for(var i = 0;i<itemList.length; i++){
+  var d = getDataSub1(itemList.item(i));
+  for(var k in d){
+    if (d[k].country==countryCode&&d[k].value==regionName){sub1Code = d[k].sub1;}
+  }
+}
+if(defaultMode=="county"){ 
+var url = "http://ebird.org/ws1.1/ref/location/find?rtype=subnational2&match=" + districtName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
+_IG_FetchXmlContent(url, callbackCodesChecklist, { refreshInterval: (60) }); 
+}
+if(defaultMode=="state"){
+var url="http://ebird.org/ws1.1/data/obs/region/recent?rtype=subnational1&r=" + sub1Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
+_IG_FetchXmlContent(url, checklistArea2, { refreshInterval: (60) });
+}
+}
+function callbackCodesChecklist(response){
+   var itemList = response.getElementsByTagName("result");  
+  for(var i = 0;i<itemList.length; i++){
+    var d = getDataCodes(itemList.item(i));  
+    for(var k in d){
+     if(d[k].sub1==sub1Code&&d[k].value==districtName){sub2Code = d[k].sub2;}
+    }
+  }
+  var url = "http://ebird.org/ws1.1/data/obs/region/recent?rtype=subnational2&r=" + sub2Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
+  _IG_FetchXmlContent(url, checklistArea2, { refreshInterval: (60) });
+}
+
+
+
+
+var species_amount = 0;
+function checklistArea2(response) {
+var progress = 3;
+_gel('progress_meter').style.width=progress + "%";
+var html = "";
+var itemList = response.getElementsByTagName("sighting");
+var species_total = itemList.length;
+
+var d = new Date();
+var today_milli = d.getTime();
+var daysBackmilli= daysBack*86400000;
+var daysBackmilli_diff = today_milli-daysBackmilli;
+var ago = new Date();
+ago.setTime(today_milli-daysBackmilli);
+var day = ago.getDate();
+var m = ago.getMonth();
+
+if(m==0){month="Jan";}
+if(m==1){month="Feb";}
+if(m==2){month="Mar";}
+if(m==3){month="Apr";}
+if(m==4){month="May";}
+if(m==5){month="Jun";}
+if(m==6){month="Jul";}
+if(m==7){month="Aug";}
+if(m==8){month="Sep";}
+if(m==9){month="Oct";}
+if(m==10){month="Nov";}
+if(m==11){month="Dec";}
+
+tday = d.getDate();
+tm = d.getMonth();
+if(tm==0){tmonth="Jan";}
+if(tm==1){tmonth="Feb";}
+if(tm==2){tmonth="Mar";}
+if(tm==3){tmonth="Apr";}
+if(tm==4){tmonth="May";}
+if(tm==5){tmonth="Jun";}
+if(tm==6){tmonth="Jul";}
+if(tm==7){tmonth="Aug";}
+if(tm==8){tmonth="Sep";}
+if(tm==9){tmonth="Oct";}
+if(tm==10){tmonth="Nov";}
+if(tm==11){tmonth="Dec";}
+
+var dateoutput = "";
+if(tmonth==month){dateoutput=month + " " + day + "-" + tday;}
+else{dateoutput=month + " " + day + "-" + tmonth + " " + tday;}
+
+var checklist_number='0';
+_gel('infobar').innerHTML = "<b>" + dateoutput + "</b> <i>(<span id='checklist_number'>" + checklist_number + "</span> checklists, " + itemList.length + " species)</i>";
+species_amount=itemList.length;
+progress=3;
+_gel('progress_meter').style.width=progress + "%"; 
+
+for(var i = 0; i < itemList.length; i++){
+var d = getData(itemList.item(i));
+var sciname = d["sci-name"];
+var scientificname = sciname.replace(" ","%20");
+if(defaultMode=="area"){var url="http://ebird.org/ws1.1/data/obs/geo_spp/recent?lng=" + longitude + "&lat=" + latitude + "&sci=" + scientificname + "&dist=" + radius + "&back=" + daysBack + "&fmt=xml&includeProvisional=true&locale=" + locale;}
+if(defaultMode=="county"){var url="http://ebird.org/ws1.1/data/obs/region_spp/recent?rtype=subnational2&r=" + sub2Code + "&sci=" + scientificname + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;}
+if(defaultMode=="state"){var url="http://ebird.org/ws1.1/data/obs/region_spp/recent?rtype=subnational1&r=" + sub1Code + "&sci=" + scientificname + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;}
+progress=4;
+_gel('progress_meter').style.width=progress + "%"; 
+_IG_FetchXmlContent(url, checklistArea3, { refreshInterval: (0) });
+}  
+
+}
+
+function checklistArea3(response)
+{
+iterations++;
+var progress=95/species_amount*iterations;
+_gel('progress_meter').style.width=progress + "%";
+var itemList = response.getElementsByTagName("sighting");
+for(f=0;f<itemList.length;f++)
+  {
+  var present_in_array="no";
+  var d = getData(itemList.item(f));
+  _gel('textupdate').innerHTML="Downloading<br /><b>" + d['loc-name'] + "</b>";
+  var compare=d["loc-id"] + d["obs-dt"]+d["first-name"]+d["last-name"];
+  for(i=0;i<=genchecklists.length;i++)
+    {
+     if(compare==genchecklists[i])
+      {
+        present_in_array="yes";
+      }
+     else if(i==genchecklists.length&&present_in_array=="no")
+      {
+       genchecklists.push(d["loc-id"]+d["obs-dt"]+d["first-name"]+d["last-name"]);
+       var url = "http://ebird.org/ws1.1/data/obs/loc_spp/recent?r="+d["loc-id"]+"&sci="+d["sci-name"].replace(" ","%20")+"&back="+daysBack+"&fmt=xml&detail=full&includeProvisional=true&locale=" + locale;
+      _IG_FetchXmlContent(url, getToArray, { refreshInterval: (0) }); 
+      break;
+      }
+    }
+  }
+} 
+
+// ----------------------------------------------------------------------------------------------------- /////// ***PROCESSING FUNCTIONS***
+
+// ----------------------------------------------------------------------------------------------------- SIGHTINGS
+
+function callbackArea(response) {
+if (response == null || typeof(response) != "object" || response.firstChild == null)
+{_gel("content_div").innerHTML = "<i>Invalid data.</i>";return;}
+if (radius>50){_gel("content_div").innerHTML="Your radius is too big.  Maximum radius is 50 km.  Try entering a smaller value!";return;}
+var html = "";
+var row_number = 0;
+var itemList = response.getElementsByTagName("sighting");
+
+var species_total = itemList.length;
+
+var d = new Date();
+var today_milli = d.getTime();
+var daysBackmilli= daysBack*86400000;
+var daysBackmilli_diff = today_milli-daysBackmilli;
+var ago = new Date();
+ago.setTime(today_milli-daysBackmilli);
+var day = ago.getDate();
+var m = ago.getMonth();
+
+if(m==0){month="Jan";}
+if(m==1){month="Feb";}
+if(m==2){month="Mar";}
+if(m==3){month="Apr";}
+if(m==4){month="May";}
+if(m==5){month="Jun";}
+if(m==6){month="Jul";}
+if(m==7){month="Aug";}
+if(m==8){month="Sep";}
+if(m==9){month="Oct";}
+if(m==10){month="Nov";}
+if(m==11){month="Dec";}
+
+tday = d.getDate();
+tm = d.getMonth();
+if(tm==0){tmonth="Jan";}
+if(tm==1){tmonth="Feb";}
+if(tm==2){tmonth="Mar";}
+if(tm==3){tmonth="Apr";}
+if(tm==4){tmonth="May";}
+if(tm==5){tmonth="Jun";}
+if(tm==6){tmonth="Jul";}
+if(tm==7){tmonth="Aug";}
+if(tm==8){tmonth="Sep";}
+if(tm==9){tmonth="Oct";}
+if(tm==10){tmonth="Nov";}
+if(tm==11){tmonth="Dec";}
+
+var dateoutput = "";
+if(tmonth==month){dateoutput=month + " " + day + "-" + tday;}
+else{dateoutput=month + " " + day + "-" + tmonth + " " + tday;}
+
+// determine number of checklists.  Note that alldifferent checklists submitted for same location at same time will only be counted once.
+if(itemList.length>0){var checklist_number=1;}
+if(itemList.length==0){checklist_number=0;}
+for (var i = 1; i < itemList.length ; i++) {
+var d = getData(itemList.item(i));
+var e = getData(itemList.item(i-1));
+if(d["loc-id"]!=e["loc-id"]||d["obs-dt"]!=e["obs-dt"]){checklist_number++;}
+}
+
+_gel('infobar').innerHTML = "<b>" + dateoutput + "</b> <i>(" + checklist_number + " checklists, " + itemList.length + " species)</i>&nbsp;";
+
+for (var i = 0; i < itemList.length ; i++) {
+var d = getData(itemList.item(i));
+
+var y = new Date();
+var month=new Array(12);
+month[0]="January";
+month[1]="February";
+month[2]="March";
+month[3]="April";
+month[4]="May";
+month[5]="June";
+month[6]="July";
+month[7]="August";
+month[8]="September";
+month[9]="October";
+month[10]="November";
+month[11]="December"; 
+ var obsdt = d["obs-dt"].substring(8,10)*10/10;
+var today = y.getDate();
+var dateChange;
+if(i>0){
+  var e = getData(itemList.item(i-1));
+  if(obsdt!=e["obs-dt"].substring(8,10)){
+    if(today-1==obsdt){dateChange="Yesterday";} 
+    else if(obsdt>=today){dateChange=month[(y.getMonth()-1)] + " " + obsdt;}
+    else{dateChange=month[y.getMonth()] + " " + obsdt;}
+  }
+  else{dateChange = "no";}
+}
+else{
+if(today==obsdt){dateChange="Today";}
+else if(today-1==obsdt){dateChange="Yesterday";}
+else{
+if(obsdt>=today){
+dateChange=month[(y.getMonth()-1)] + " " + obsdt; 
+}
+else{
+dateChange=month[y.getMonth()] + " " + obsdt; 
+}
+}
+}
+
+if(showhide==1){
+var show = false;
+for (var j = 0; j < hide.length; j++){ // show only if d[com-name]==an item in the user-entered array
+if (d["com-name"].toLowerCase().replace(" ","").replace("-","").replace("'","").replace(" ","")==hide[j].toLowerCase().replace(" ","").replace("-","").replace("'","").replace(" ","")) {
+show = true;
+}}}
+else if(showhide==2){
+var show = true;
+for (var j = 0; j < hide.length; j++){ // show only if d[com-name]!=an item in the user-entered array
+if (d["com-name"].toLowerCase().replace(" ","").replace("-","").replace("'","").replace(" ","") == hide[j].toLowerCase().replace(" ","").replace("-","").replace("'","").replace(" ","")) {
+show = false;
+}}}
+else if(showhide==3){show = true;} // do nothing means show is always true so all observations are shown
+
+if(spuhs==false){if(d["com-name"].indexOf("sp.")>0||d["com-name"].indexOf("/")>0){show = false;}} // eliminate spuhs
+if (show){
+if(dateChange!="no"){html+="<table><tr><td><b>" + dateChange + "</b></td><td></td><td></td><td></td></tr></table>";} 
+if (row_number % 2 == 1) {html += "<table class='row2'><tr>";}else {html += "<table class='row1'><tr>";}
+if (d["how-many"] > 0){html += '<td class="count">'+ d["how-many"] + '</td>';}else {html += '<td class="count">X</td>';}
+html += "<td class='species' onclick='displayNearby(\"" + d["sci-name"] + "\",\"" + d["com-name"].replace("'","") + "\")'>" + d["com-name"] + "</td>";
+html += "<td class='location' onclick='displayLocation(\"" + d["loc-id"] + "\",\"" + d["loc-name"] + "\")'>" + d["loc-name"] + "</td>";
+var rare = "false";
+html += "<td class='plus' style='font-size:150%;' onclick='popup_visible(\"" + d["obs-dt"] + "\",\"" + d["loc-id"] + "\",\"" + d["sci-name"] + "\",\"" + d["last-name"] + "\",\"" + d["first-name"] + "\",\"" + rare + "\")'>+</td>";
+html += "</tr></table>";
+row_number++;
+}}
+
+var d = new Date();
+html +="<div id='footer'><a onclick='help()'>About BirdTrax</a> - ";
+html +="<a target='_blank' href='http://ebird.org'>Powered by eBird</a></div>";
+
+_gel('content_div').innerHTML = html;
+}
+
+
+// ----------------------------------------------------------------------------------------------------- OUTPUT RARITIES
+
+function callbackRarities(response) {
+var html = "";
+var row_number = 0;
+var itemList = response.getElementsByTagName("sighting");
+
+var species_total = itemList.length;
+
+var d = new Date();
+var today_milli = d.getTime();
+var daysBackmilli= daysBack*86400000;
+var daysBackmilli_diff = today_milli-daysBackmilli;
+var ago = new Date();
+ago.setTime(today_milli-daysBackmilli);
+var day = ago.getDate();
+var m = ago.getMonth();
+
+
+if(m==0){month="Jan";}
+if(m==1){month="Feb";}
+if(m==2){month="Mar";}
+if(m==3){month="Apr";}
+if(m==4){month="May";}
+if(m==5){month="Jun";}
+if(m==6){month="Jul";}
+if(m==7){month="Aug";}
+if(m==8){month="Sep";}
+if(m==9){month="Oct";}
+if(m==10){month="Nov";}
+if(m==11){month="Dec";}
+
+tday = d.getDate();
+tm = d.getMonth();
+if(tm==0){tmonth="Jan";}
+if(tm==1){tmonth="Feb";}
+if(tm==2){tmonth="Mar";}
+if(tm==3){tmonth="Apr";}
+if(tm==4){tmonth="May";}
+if(tm==5){tmonth="Jun";}
+if(tm==6){tmonth="Jul";}
+if(tm==7){tmonth="Aug";}
+if(tm==8){tmonth="Sep";}
+if(tm==9){tmonth="Oct";}
+if(tm==10){tmonth="Nov";}
+if(tm==11){tmonth="Dec";}
+
+var dateoutput = "";
+if(tmonth==month){dateoutput=month + " " + day + "-" + tday;}
+else{dateoutput=month + " " + day + "-" + tmonth + " " + tday;}
+
+// determine number of checklists.  Note that alldifferent checklists submitted for same location at same time will only be counted once.
+if(itemList.length>0){var checklist_number=1;}
+if(itemList.length==0){checklist_number=0;}
+for (var i = 1; i < itemList.length ; i++) {
+var d = getData(itemList.item(i));
+var e = getData(itemList.item(i-1));
+if(d["loc-id"]!=e["loc-id"]||d["obs-dt"]!=e["obs-dt"]){checklist_number++;}
+}
+
+_gel('infobar').innerHTML = "<b>" + dateoutput + "</b> <i>(" + checklist_number + " checklists, " + itemList.length + " species)</i>&nbsp;";
+for (var i = 0; i < itemList.length ; i++) {
+var d = getData(itemList.item(i));
+var y = new Date();
+var month=new Array(12);
+month[0]="January";
+month[1]="February";
+month[2]="March";
+month[3]="April";
+month[4]="May";
+month[5]="June";
+month[6]="July";
+month[7]="August";
+month[8]="September";
+month[9]="October";
+month[10]="November";
+month[11]="December"; 
+var obsdt = d["obs-dt"].substring(8,10)*10/10;
+var today = y.getDate();
+var dateChange;
+if(i>0){
+  var e = getData(itemList.item(i-1));
+  if(obsdt!=e["obs-dt"].substring(8,10)){
+    if(today-1==obsdt){dateChange="Yesterday";} 
+    else if(obsdt>=today){dateChange=month[(y.getMonth()-1)] + " " + obsdt;}
+    else{dateChange=month[y.getMonth()] + " " + obsdt;}
+  }
+  else{dateChange = "no";}
+}
+else{
+if(today==obsdt){dateChange="Today";}
+else if(today-1==obsdt){dateChange="Yesterday";}
+else{
+if(obsdt>=today){
+dateChange=month[(y.getMonth()-1)] + " " + obsdt; 
+}
+else{
+dateChange=month[y.getMonth()] + " " + obsdt; 
+}
+}
+}
+
+if(d["location-private"]=="true"){color="rgb(0,20,45)";}
+if(d["location-private"]=="false"){color="rgb(255,60,0)";}
+var line_length=d["loc-name"].length; 
+if(dateChange!="no"){html+="<table><tr><td><b>" + dateChange + "</b></td><td></td><td></td><td></td></tr></table>";} 
+if (row_number % 2 == 1) {html += "<table class='row2'><tr>";}else {html += "<table class='row1'><tr>";}
+if (d["how-many"] > 0){html += '<td class="count">'+ d["how-many"] + '<br />';}else {html += '<td class="count">X<br />';}
+if(d["obs-valid"]=="true"){html+="<img src='https://lh3.googleusercontent.com/-YNCzIb-YYMM/T8ksBMTlCZI/AAAAAAAAAqg/gGPdl23BdMc/s24/checkmark.png' style='width:12px;' /></td>";}
+else{html+="</td>";} 
+html += "<td class='species' onclick='displayNearby(\"" + d["sci-name"] + "\",\"" + d["com-name"].replace("'","") + "\")'><b>" + d["com-name"] + "</b><br />" + d["first-name"] + " " + d["last-name"] + "</td>";
+html += "<td class='location' onclick='displayLocation(\"" + d["loc-id"] + "\",\"" + d["loc-name"] + "\")'><span style='color:" + color + ";font-family:calibri;'>" + d["loc-name"] + "</span><br />" + d["subnational2-name"] + " county <a target='_blank' href='http://maps.google.com/?ie=UTF8&t=p&z=13&q=" + d["lat"] + "," + d["lng"] +  "&ll=" + d["lat"] + "," + d["lng"] + " st' style='text-decoration:none;color:black;'>(map)</a></td>";
+var rare = "true";
+html += "<td class='plus' style='font-size:150%;' onclick='popup_visible(\"" + d["obs-dt"] + "\",\"" + d["loc-id"] + "\",\"" + d["sci-name"] + "\",\"" + d["last-name"] + "\",\"" + d["first-name"] + "\",\"" + rare + "\")'>+</td>";
+html += "</tr></table>";
+row_number++;
+
+}
+
+var d = new Date();
+html +="<div id='footer'><a onclick='help()'>About BirdTrax</a> - ";
+html +="<a target='_blank' href='http://ebird.org'>Powered by eBird</a></div>";
+
+if(itemList.length>0){_gel('content_div').innerHTML = html;}
+else{
+if(defaultMode=="area"){var displayTitle = title;}
+else if(defaultMode=="county"){displayTitle = districtName + ", " + sub1Code.substring(3,5);}
+else if(defaultMode=="region"){displayTitle = regionName + ", " + countryCode;}
+_gel("content_div").innerHTML="<div style='margin:10px auto;width:80%;font-size:80%;font-style:italic;'>No rare bird observations have been submitted to eBird between " + month + " " + day + " and " + tmonth + " " + tday + " within " + displayTitle + "</div>";
+}  
+}
+
+
+function popup_visible(date,locid,sciname,lastname,firstname,rare){
+popupDate = date;
+popupLastName = lastname;
+popupFirstName = firstname;
+_gel("popup_box_background").style.visibility="visible";
+_gel("popup_box_loading").style.visibility="visible";
+var sciname = sciname.replace(" ","%20");
+if(rare=="true"){
+var url = "http://ebird.org/ws1.1/data/notable/loc/recent?r=" + locid + "&sci=" + sciname + "&back=" + daysBack + "&fmt=xml&detail=full&includeProvisional=true&locale=" + locale;
+}
+if(rare=="false"){
+var url = "http://ebird.org/ws1.1/data/obs/loc_spp/recent?r=" + locid + "&sci=" + sciname + "&back=" + daysBack + "&fmt=xml&detail=full&includeProvisional=true&locale=" + locale; 
+}
+
+_IG_FetchXmlContent(url, callbackPopup, { refreshInterval: (0) });
+
+}
+
+
+// -------------------------------------------------------------------------------------------------------------------- OUTPUT CHECKLISTS
+
+function getToArray(response){
+if(defaultMode=="area"){_gel("location_div").innerHTML=title;}
+if(defaultMode=="county"){_gel("location_div").innerHTML=districtName + " County";}
+if(defaultMode=="state"){_gel("location_div").innerHTML=regionName;}
+var itemList = response.getElementsByTagName("sighting");
+var d = getData(itemList.item(0));
+var topush2=d["obs-dt"].replace("-","").replace(" ","").replace("-","") + "|||" + d["loc-name"] + "|||" + d["first-name"] + " " + d["last-name"] + "|||" + d["sub-id"] + "|||" + d["obs-dt"] + "|||" + d["location-private"] + "|||" + d["lat"] + "|||" + d["lng"];
+for(i=0;i<checklists.length;i++){
+if(topush2==checklists[i]){
+var d = getData(itemList.item(1));
+if(d["com-name"]!="null"||d["com-name"]!=""||d["com-name"]!="undefined"){
+topush2=d["obs-dt"].replace("-","").replace(" ","").replace("-","") + "|||" + d["loc-name"] + "|||" + d["first-name"] + " " + d["last-name"] + "|||" + d["sub-id"] + "|||" + d["obs-dt"] + "|||" + d["location-private"] + "|||" + d["lat"] + "|||" + d["lng"];
+}
+else{
+return;
+}
+}
+}
+checklists.push(topush2);
+getFromArray();
+}
+
+function getFromArray(){
+checklists.sort().reverse();
+
+html="";
+var row_number=0;
+for(i=0;i<checklists.length;i++){
+
+for(q=0;q<checklists.length;q++){
+var compareOriginal = checklists[q];
+if(compareOriginal==checklists[i]){continue;}
+}
+var toSplit = checklists[i];
+var dataItem = toSplit.split("|||");
+var location = dataItem[1];
+var observer = dataItem[2];
+var checklist = dataItem[3];
+var date = dataItem[4];
+var private = dataItem[5];
+var lat = dataItem[6];
+var lng = dataItem[7];
+var datestr = date.substring(5,10);
+time = date.substring(11,16);
+if(time.substring(0,1)==0){time=time.substring(1,8)};
+var m = datestr.substring(0,2)*10/10;
+var day = datestr.substring(3,5)*10/10;
+if(m==1){month="Jan";}
+if(m==2){month="Feb";}
+if(m==3){month="Mar";}
+if(m==4){month="Apr";}
+if(m==5){month="May";}
+if(m==6){month="Jun";}
+if(m==7){month="Jul";}
+if(m==8){month="Aug";}
+if(m==9){month="Sep";}
+if(m==10){month="Oct";}
+if(m==11){month="Nov";}
+if(m==12){month="Dec";}
+if(time==""||time==null){time="n/a";}
+else if(time.substring(0,2)>12){time=time.substring(0,2)-12 + ":" + time.substring(3,5) + "pm";}
+else if(time.substring(0,2)==12){time="12:" + time.substring(3,5) + "pm";}
+else if(time.substring(0,2)!=""||time.substring(0,2)!=null){time=time + "am";}
+else{time="n/a";} 
+if (row_number % 2 == 1) {html += "<table class='row2'><tr>";}else {html += "<table class='row1'><tr>";} 
+html+="<td style='vertical-align:middle;width:10%;'><a target='_blank' href='http://ebird.org/ebird/view/checklist?subID=" + checklist + "'><img class='popup_img' src='https://lh3.googleusercontent.com/-VlVCMZK7DNs/T814wkkXjTI/AAAAAAAAAuM/ddk5off7d9A/s32/checklist-nobox.png' style='width:25px;height:25px;' title='Open eBird Checklist' /></a></td>";
+if(private=="false"){html+="<td style='width:50%;vertical-align:middle;'><a><span style='color:rgb(200,10,10);font-family:calibri;cursor:pointer;' onclick='arrayLocation(\"" + location + "\")'>" + location + "</span></td>";}
+if(private=="true"){html+="<td style='width:50%;vertical-align:middle;'><a><span style='color:rgb(0,20,65);font-family:calibri;cursor:pointer;' onclick='arrayLocation(\"" + location + "\")'>" + location + "</span></a></td>";}
+html+="<td style='width:40%;vertical-align:middle;'><a><span style='font-weight:bold;font-family:calibri;font-size:95%;cursor:pointer;color:black;' onclick='arrayObserver(\"" + observer + "\")'>" + observer + "</span></a><br />" + month + " " + day + ", " + time + "</td>";
+html+="</tr></table>";
+row_number++;
+_gel('checklist_number').innerHTML=row_number; 
+}
+html +="<div id='footer'>*Total Checklist Number excludes shared or empty checklists<br /><a onclick='help()'>About BirdTrax</a> - "
+html +="<a target='_blank' href='http://ebird.org'>Powered by eBird</a></div>";  
+_gel("content_div").innerHTML=html;
+mainChecklistDisplay = html;
+}
+
+function arrayObserver(observer)
+{
+var observerArray = new Array();
+for(i=0;i<checklists.length;i++)
+  {
+  var toSplit = checklists[i];
+  var dataItem = toSplit.split("|||");
+  if(dataItem[2]==observer)
+    {
+    observerArray.push(checklists[i]); 
+    }
+  }
+observerArray.sort().reverse();
+ _gel('content_div').innerHTML="";
+html="";
+var row_number=0;
+for(i=0;i<observerArray.length;i++){
+
+for(q=0;q<observerArray.length;q++){
+var compareOriginal = observerArray[q];
+if(compareOriginal==observerArray[i]){continue;}
+}
+var toSplit = observerArray[i];
+var dataItem = toSplit.split("|||");
+var location = dataItem[1];
+var observer = dataItem[2];
+var checklist = dataItem[3];
+var date = dataItem[4];
+var private = dataItem[5];
+var lat = dataItem[6];
+var lng = dataItem[7];
+var datestr = date.substring(5,10);
+time = date.substring(11,16);
+if(time.substring(0,1)==0){time=time.substring(1,8)};
+var m = datestr.substring(0,2)*10/10;
+var day = datestr.substring(3,5)*10/10;
+if(m==1){month="Jan";}
+if(m==2){month="Feb";}
+if(m==3){month="Mar";}
+if(m==4){month="Apr";}
+if(m==5){month="May";}
+if(m==6){month="Jun";}
+if(m==7){month="Jul";}
+if(m==8){month="Aug";}
+if(m==9){month="Sep";}
+if(m==10){month="Oct";}
+if(m==11){month="Nov";}
+if(m==12){month="Dec";}
+if(time==""||time==null){time="n/a";}
+else if(time.substring(0,2)>12){time=time.substring(0,2)-12 + ":" + time.substring(3,5) + "pm";}
+else if(time.substring(0,2)==12){time="12:" + time.substring(3,5) + "pm";}
+else if(time.substring(0,2)!=""||time.substring(0,2)!=null){time=time + "am";}
+else{time="n/a";} 
+if (row_number % 2 == 1) {html += "<table class='row2'><tr>";}else {html += "<table class='row1'><tr>";} 
+html+="<td style='vertical-align:middle;width:10%;'><a target='_blank' href='http://ebird.org/ebird/view/checklist?subID=" + checklist + "'><img class='popup_img' src='https://lh3.googleusercontent.com/-VlVCMZK7DNs/T814wkkXjTI/AAAAAAAAAuM/ddk5off7d9A/s32/checklist-nobox.png' style='width:25px;height:25px;' title='Open eBird Checklist' /></a></td>";
+if(private=="false"){html+="<td style='width:50%;vertical-align:middle;'><a><span style='color:rgb(200,10,10);font-family:calibri;cursor:pointer;' onclick='arrayLocation(\"" + location + "\")'>" + location + "</span></td>";}
+if(private=="true"){html+="<td style='width:50%;vertical-align:middle;'><a><span style='color:rgb(0,20,65);font-family:calibri;cursor:pointer;' onclick='arrayLocation(\"" + location + "\")'>" + location + "</span></a></td>";}
+html+="<td style='width:40%;vertical-align:middle;'><a><span style='font-weight:bold;font-family:calibri;font-size:95%;cursor:pointer;color:black;' onclick='arrayObserver(\"" + observer + "\")'>" + observer + "</span></a><br />" + month + " " + day + ", " + time + "</td>";
+html+="</tr></table>";
+_gel("back").innerHTML="&nbsp;&lt;Back";
+row_number++;
+_gel('checklist_number').innerHTML=row_number;
+}
+html +="<div id='footer'>*Total Checklist Number not including shared checklists or checklists with 0 species<br /><a onclick='help()'>About BirdTrax</a> - ";
+html +="<a target='_blank' href='http://ebird.org'>Powered by eBird</a></div>"; 
+_gel("content_div").innerHTML=html;
+} 
+
+function arrayLocation(location)
+{
+var locationArray = new Array();
+for(i=0;i<checklists.length;i++)
+  {
+  var toSplit = checklists[i];
+  var dataItem = toSplit.split("|||");
+  if(dataItem[1]==location)
+    {
+    locationArray.push(checklists[i]); 
+    }
+  }
+locationArray.sort().reverse();
+_gel('content_div').innerHTML="";
+html="";
+var row_number=0;
+for(i=0;i<locationArray.length;i++){
+
+for(q=0;q<locationArray.length;q++){
+var compareOriginal = locationArray[q];
+if(compareOriginal==locationArray[i]){continue;}
+}
+var toSplit = locationArray[i];
+var dataItem = toSplit.split("|||");
+var location = dataItem[1];
+var observer = dataItem[2];
+var checklist = dataItem[3];
+var date = dataItem[4];
+var private = dataItem[5];
+var lat = dataItem[6];
+var lng = dataItem[7];
+var datestr = date.substring(5,10);
+time = date.substring(11,16);
+if(time.substring(0,1)==0){time=time.substring(1,8)};
+var m = datestr.substring(0,2)*10/10;
+var day = datestr.substring(3,5)*10/10;
+if(m==1){month="Jan";}
+if(m==2){month="Feb";}
+if(m==3){month="Mar";}
+if(m==4){month="Apr";}
+if(m==5){month="May";}
+if(m==6){month="Jun";}
+if(m==7){month="Jul";}
+if(m==8){month="Aug";}
+if(m==9){month="Sep";}
+if(m==10){month="Oct";}
+if(m==11){month="Nov";}
+if(m==12){month="Dec";}
+if(time==""||time==null){time="n/a";}
+else if(time.substring(0,2)>12){time=time.substring(0,2)-12 + ":" + time.substring(3,5) + "pm";}
+else if(time.substring(0,2)==12){time="12:" + time.substring(3,5) + "pm";}
+else if(time.substring(0,2)!=""||time.substring(0,2)!=null){time=time + "am";}
+else{time="n/a";} 
+if (row_number % 2 == 1) {html += "<table class='row2'><tr>";}else {html += "<table class='row1'><tr>";} 
+html+="<td style='vertical-align:middle;width:10%;'><a target='_blank' href='http://ebird.org/ebird/view/checklist?subID=" + checklist + "'><img class='popup_img' src='https://lh3.googleusercontent.com/-VlVCMZK7DNs/T814wkkXjTI/AAAAAAAAAuM/ddk5off7d9A/s32/checklist-nobox.png' style='width:25px;height:25px;' title='Open eBird Checklist' /></a></td>";
+if(private=="false"){html+="<td style='width:50%;vertical-align:middle;'><a><span style='color:rgb(200,10,10);font-family:calibri;cursor:pointer;' onclick='arrayLocation(\"" + location + "\")'>" + location + "</span></td>";}
+if(private=="true"){html+="<td style='width:50%;vertical-align:middle;'><a><span style='color:rgb(0,20,65);font-family:calibri;cursor:pointer;' onclick='arrayLocation(\"" + location + "\")'>" + location + "</span></a></td>";}
+html+="<td style='width:40%;vertical-align:middle;'><a><span style='font-weight:bold;font-family:calibri;font-size:95%;cursor:pointer;color:black;' onclick='arrayObserver(\"" + observer + "\")'>" + observer + "</span></a><br />" + month + " " + day + ", " + time + "</td>";
+html+="</tr></table>";
+_gel("back").innerHTML="&nbsp;&lt;Back";
+row_number++;
+_gel('checklist_number').innerHTML=row_number;
+}
+html +="<div id='footer'>*Total Checklist Number not including shared checklists or checklists with 0 species<br /><a onclick='help()'>About BirdTrax</a> - ";
+html +="<a target='_blank' href='http://ebird.org'>Powered by eBird</a></div>"; 
+_gel("content_div").innerHTML=html;
+}
+
+function back() {
+_gel("back").innerHTML="";
+_gel('content_div').innerHTML="";
+html="";
+var row_number=0;
+for(i=0;i<checklists.length;i++){
+
+for(q=0;q<checklists.length;q++){
+var compareOriginal = checklists[q];
+if(compareOriginal==checklists[i]){continue;}
+}
+var toSplit = checklists[i];
+var dataItem = toSplit.split("|||");
+var location = dataItem[1];
+var observer = dataItem[2];
+var checklist = dataItem[3];
+var date = dataItem[4];
+var private = dataItem[5];
+var lat = dataItem[6];
+var lng = dataItem[7];
+var datestr = date.substring(5,10);
+time = date.substring(11,16);
+if(time.substring(0,1)==0){time=time.substring(1,8)};
+var m = datestr.substring(0,2)*10/10;
+var day = datestr.substring(3,5)*10/10;
+if(m==1){month="Jan";}
+if(m==2){month="Feb";}
+if(m==3){month="Mar";}
+if(m==4){month="Apr";}
+if(m==5){month="May";}
+if(m==6){month="Jun";}
+if(m==7){month="Jul";}
+if(m==8){month="Aug";}
+if(m==9){month="Sep";}
+if(m==10){month="Oct";}
+if(m==11){month="Nov";}
+if(m==12){month="Dec";}
+if(time==""||time==null){time="n/a";}
+else if(time.substring(0,2)>12){time=time.substring(0,2)-12 + ":" + time.substring(3,5) + "pm";}
+else if(time.substring(0,2)==12){time="12:" + time.substring(3,5) + "pm";}
+else if(time.substring(0,2)!=""||time.substring(0,2)!=null){time=time + "am";}
+else{time="n/a";} 
+if (row_number % 2 == 1) {html += "<table class='row2'><tr>";}else {html += "<table class='row1'><tr>";} 
+html+="<td style='vertical-align:middle;width:10%;'><a target='_blank' href='http://ebird.org/ebird/view/checklist?subID=" + checklist + "'><img class='popup_img' src='https://lh3.googleusercontent.com/-VlVCMZK7DNs/T814wkkXjTI/AAAAAAAAAuM/ddk5off7d9A/s32/checklist-nobox.png' style='width:25px;height:25px;' title='Open eBird Checklist' /></a></td>";
+if(private=="false"){html+="<td style='width:50%;vertical-align:middle;'><a><span style='color:rgb(200,10,10);font-family:calibri;cursor:pointer;' onclick='arrayLocation(\"" + location + "\")'>" + location + "</span></td>";}
+if(private=="true"){html+="<td style='width:50%;vertical-align:middle;'><a><span style='color:rgb(0,20,65);font-family:calibri;cursor:pointer;' onclick='arrayLocation(\"" + location + "\")'>" + location + "</span></a></td>";}
+html+="<td style='width:40%;vertical-align:middle;'><a><span style='font-weight:bold;font-family:calibri;font-size:95%;cursor:pointer;color:black;' onclick='arrayObserver(\"" + observer + "\")'>" + observer + "</span></a><br />" + month + " " + day + ", " + time + "</td>";
+html+="</tr></table>";
+row_number++;
+_gel('checklist_number').innerHTML=row_number;
+}
+html +="<div id='footer'>*Total Checklist Number not including shared checklists or checklists with 0 species<br /><a onclick='help()'>About BirdTrax</a> - ";
+html +="<a target='_blank' href='http://ebird.org'>Powered by eBird</a></div>";  
+_gel("content_div").innerHTML=html;
+} 
+
+// ----------------------------------------------------------------------------------------------------- OUTPUT POPUP
+
+function callbackPopup(response) {
+var itemList = response.getElementsByTagName("sighting");
+
+var d = getData(itemList.item(0));
+
+var tomatch = popupFirstName + popupLastName + popupDate;
+if(d["last-name"]!=popupLastName){
+for(i=0;i<itemList.length;i++){
+var e = getData(itemList.item(i));
+var tocompare = e["first-name"] + e["last-name"] + e["obs-dt"];
+if(tocompare==tomatch){
+var d = getData(itemList.item(i));
+}
+}
+} 
+
+var date=d["obs-dt"];
+var datestr = date.substring(5,10);
+time = date.substring(11,16);
+if(time.substring(0,1)==0){time=time.substring(1,8)};
+var m = datestr.substring(0,2)*10/10;
+var day = datestr.substring(3,5)*10/10;
+if(m==1){month="Jan";}
+if(m==2){month="Feb";}
+if(m==3){month="Mar";}
+if(m==4){month="Apr";}
+if(m==5){month="May";}
+if(m==6){month="Jun";}
+if(m==7){month="Jul";}
+if(m==8){month="Aug";}
+if(m==9){month="Sep";}
+if(m==10){month="Oct";}
+if(m==11){month="Nov";}
+if(m==12){month="Dec";}
+if(time==""||time==null){time="n/a";}
+else if(time.substring(0,2)>12){time=time.substring(0,2)-12 + ":" + time.substring(3,5) + "pm";}
+else if(time.substring(0,2)==12){time="12:" + time.substring(3,5) + "pm";}
+else if(time.substring(0,2)!=""||time.substring(0,2)!=null){time=time + "am";}
+else{time="n/a";}
+if(d["location-private"]=="true"){color="rgb(0,20,45)";}
+if(d["location-private"]=="false"){color="rgb(200,10,10)";}
+var line_length=d["loc-name"].length;
+
+var html="";
+html="<div id='popup_box_x' onclick='popup_hidden()'>X</div>";
+html +="<table class='popup_table'><tr><td style='border-bottom:black 2px solid;font-size:110%;'  onclick='displayNearby(\"" + d["sci-name"] + "\",\"" + d["com-name"].replace("'","") + "\")'><b>";
+if(d["how-many"]>0){html += d["how-many"];}
+else{html += "X";}
+html +="&nbsp;&nbsp;" + d["com-name"] + "</b></td></tr></table>";
+html +="<table class='popup_table' style='padding-top:0px;margin-top:-2px;'>";
+html +="<tr><td><b>Location:</b></td><td><span onclick='displayLocation(\"" + d["loc-id"] + "\",\"" + d["loc-name"] + "\")' style='color:" + color + ";'>" + d["loc-name"] + "</span>"
+ if(line_length > 26){html +=" - ";}
+if(line_length<= 26){html +="<br />";}
+html +=d["subnational2-name"] + ", " + d["subnational1-code"] + "</td></tr>";
+html +="<tr><td><b>Date:</b></td><td>" + month + " " + day + ", " + time + "</td></tr>";
+if(popupFirstName==""||popupFirstName=="undefined"||popupFirstName==null){popupFirstName=d["first-name"];}
+html +="<tr><td><b>Observer:</b></td><td>" + popupFirstName + " " + d["last-name"] + "</td></tr>";
+html +="<tr><td><b>Status:</b></td><td>";
+if(d["obs-valid"]=="true"){html +="<img src='https://lh3.googleusercontent.com/-YNCzIb-YYMM/T8ksBMTlCZI/AAAAAAAAAqg/gGPdl23BdMc/s24/checkmark.png' style='width:12px;' /> Approved</td></tr>";}
+else if(d["obs-reviewed"]=="false"){html +="Rare: Pending Review</td></tr>";}
+else if(d["obs-reviewed"]=="false"){html +="Rare: Rejected</td></tr>";}
+html +="</table>";
+html +="<div style='left:0px;height:40px;vertical-align:middle;padding:5px;'>";
+html +="<table><tr><td><a target='_blank' href='http://maps.google.com/?ie=UTF8&t=p&z=13&q=" + d["lat"] + "," + d["lng"] +  "&ll=" + d["lat"] + "," + d["lng"] + " st'><img class='popup_img' src='https://lh4.googleusercontent.com/-r9qdzV7RZRo/T8jYCOXPkRI/AAAAAAAAAqM/henv12MNHV4/s155/Google%2520Maps.png' title='Open in Google Maps' /></a></td>";
+ html +="<td><a target='_blank' href='http://ebird.org/ebird/map/'><img class='popup_img' src=' https://lh5.googleusercontent.com/-axQ15rO9tz0/T8iyXOs0ohI/AAAAAAAAApA/JQg7KXLW5C4/s145/Range%2520Maps.png' title='eBird Range Maps' /></a></td>"; 
+html +="<td><a target='_blank' href='http://ebird.org/ebird/GuideMe?cmd=changeLocation'><img class='popup_img' src='https://lh3.googleusercontent.com/-_f9gAJn44Ls/T8iyW5R_WcI/AAAAAAAAAo8/MKcvMO_FggQ/s145/bar%2520charts.png' title='eBird Bar Charts' /></a></td>";
+html +="<td><a target='_blank' href='http://ebird.org/ebird/GuideMe?cmd=quickPick'><img  class='popup_img' src='https://lh3.googleusercontent.com/-oU4or1Qx8P8/T8iyZbNdcNI/AAAAAAAAApc/CX_nmRG5O6M/s146/graphs.png' title='eBird Graphs' /></a></td>";
+html +="<td><a target='_blank' href='http://ebird.org/ebird/view/checklist?subID=" + d["sub-id"] + "'><img class='popup_img' src='https://lh3.googleusercontent.com/-QH24NKikUXg/T8iyXWwhzMI/AAAAAAAAApM/jKib33crSTg/s155/checklist.png' title='Open eBird Checklist' /></a></td>";
+html +="</tr></table>";
+_gel("popup_box_background").innerHTML="";
+_gel("popup_box_loading").style.visibility="hidden"; 
+_gel("popup_box").style.visibility="visible"; 
+_gel("popup_box").innerHTML=html;
+}
+
+function popup_hidden(){
+_gel("popup_box").style.visibility="hidden";
+_gel("popup_box_background").style.visibility="hidden";
+} 
+
+
+// ----------------------------------------------------------------------------------------------------- HELP SCREEN
+
+function help(){
+_gel('location_div').innerHTML="About BirdTrax";
+_gel('infobar').innerHTML="";
+_gel('content_div').innerHTML="<center><img src='https://lh3.googleusercontent.com/-7X0bU6HQJgo/T_uhdo4Z0hI/AAAAAAAAAw0/49lQTl8py5g/s207/birdtraxsmall.png' style='width:60%;' /><br /><b>Version 4.1.1</b><br />Released 8/11/2012<br /><br />&#169; Copyright Birdventure LLC 2012<br />All Rights Reserved.<br /><br />For more information about this gadget,<br />go to <a href='http://www.birdventurebirding.com/p/birdtrax.html' target='_blank'>birdventurebirding.com</a></center>";
+}
+
+function helpNotify(){
+	_gel('location_div').innerHTML="Discontinued";
+	if(hideNavMenu==false){
+		_gel("checklists").style.background="rgb(235,238,239)";
+		_gel("rarities").style.background="rgb(248,251,252)";
+		_gel("sightings").style.background="rgb(248,251,252)";
+	}
+	_gel('infobar').innerHTML="";
+	if(defaultView=="checklists"){ // urgent message
+		_gel('content_div').innerHTML="<b>IMPORTANT:</b> Please change your defaultView setting as the checklists feature has been discontinued.  Please use the <b><a href='http://ebird.org/ebird/places'>Region Explorer</a></b> on the eBird website for a list of recent visits in your state or county.  This tab will be removed by 1/1/2015.<br /><br />If you have questions, please visit <a href='http://birdventurebirding.com'>BirdventureBirding.com</a>";
+	}
+	else{ // not-so-urgent message
+		_gel('content_div').innerHTML="<b>Notice:</b> The checklists feature has been discontinued.  Please use the <b><a href='http://ebird.org/ebird/places'>Region Explorer</a></b> on the eBird website for a list of recent visits in your state or county.  This tab will be removed by 1/1/2015.<br /><br />If you have questions, please visit <a href='http://birdventurebirding.com'>BirdventureBirding.com</a>";
+	}
+}
+
+// ----------------------------------------------------------------------------------------------------- SIGHTINGS:  GET DATA FUNCTIONS
+
+function getDataCodes(n) {
+  var objArray = new Array();
+  var nodeList = n.childNodes;
+  for (var j = 0; j < nodeList.length ; j++) {
+  var node = nodeList.item(j);
+  var o = new Object();
+  o["value"] = node.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+  o["country"] = node.getElementsByTagName("country-code")[0].childNodes[0].nodeValue;;
+  o["sub1"] = node.getElementsByTagName("subnational1-code")[0].childNodes[0].nodeValue;;
+  o["sub2"] = node.getElementsByTagName("subnational2-code")[0].childNodes[0].nodeValue;;
+  objArray.push(o);
+  } return objArray;
+}
+
+function getDataSub1(n) {
+  var objArray = new Array();
+  var nodeList = n.childNodes;
+  for (var j = 0; j < nodeList.length ; j++) {
+  var node = nodeList.item(j);
+  var o = new Object();
+  o["value"] = node.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+  o["country"] = node.getElementsByTagName("country-code")[0].childNodes[0].nodeValue;;
+  o["sub1"] = node.getElementsByTagName("subnational1-code")[0].childNodes[0].nodeValue;;
+  objArray.push(o);
+  } return objArray;
+}
+
+function getData(n) {
+var d = new Object();
+var nodeList = n.childNodes;
+for (var j = 0; j < nodeList.length ; j++) {
+var node = nodeList.item(j);
+d[node.nodeName] = node.firstChild.nodeValue;
+} return d;
+}
+
+_IG_RegisterOnloadHandler(generateImage);
+
+</script>
+
+    ]]>
+  </Content>
+</Module>
