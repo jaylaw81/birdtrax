@@ -506,7 +506,7 @@ else if(defaultMode=="county"||defaultMode=="state"){displayCounty();}
 
 function displayCounty(){
 _gel("location_div").innerHTML="Loading Sightings";
-var url = "http://ebird.org/ws2.0/ref/location/find?rtype=subnational1&match=" + regionName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
+var url = "http://ebird.org/ws2.0/ref/region/list/subnational2/US-MI&fmt=xml";
 _IG_FetchXmlContent(url, callbackSubnational1CodeCounty, { refreshInterval: (60) });
 }
 function callbackSubnational1CodeCounty(response){
@@ -566,7 +566,7 @@ _IG_FetchXmlContent(url, callbackRarities, { refreshInterval: (60) }); }
 }
 else if(defaultMode=="county"||defaultMode=="state"){
  _gel("location_div").innerHTML="Loading Rarities";
-var url = "http://ebird.org/ws2.0/ref/location/find?rtype=subnational1&match=" + regionName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
+var url = "http://ebird.org/ws2.0/ref/region/list/subnational2/US-MI&fmt=xml";
 _IG_FetchXmlContent(url, callbackSubnational1CodeRarity, { refreshInterval: (60) }); 
 }
 } 
