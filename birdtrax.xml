@@ -10,7 +10,8 @@
     width="380"
     author="Zachary DeBruine"
     author_email="zacharydebruine@gmail.com"
-  description="Browse recent bird sightings, rarities, and checklists in your area, county, or state at lightening speed and with unprecedented ease!  Powered by eBird."
+  description="Br
+	       owse recent bird sightings, rarities, and checklists in your area, county, or state at lightening speed and with unprecedented ease!  Powered by eBird."
     author_affiliation="Avid eBirder"
     author_location="BirdTrax LLC, Grand Rapids, MI"
     >
@@ -90,7 +91,7 @@
 <EnumValue value="CU" display_value="Cuba"/>
 <EnumValue value="CY" display_value="Cyprus"/>
 <EnumValue value="CZ" display_value="Czech Republic"/>
-<EnumValue value="CI" display_value="Côte d'Ivoire"/>
+<EnumValue value="CI" display_value="CÃ´te d'Ivoire"/>
 <EnumValue value="DK" display_value="Denmark"/>
 <EnumValue value="DJ" display_value="Djibouti"/>
 <EnumValue value="DM" display_value="Dominica"/>
@@ -163,11 +164,11 @@
 <EnumValue value="NL" display_value="Netherlands"/>
 <EnumValue value="NZ" display_value="New Zealand"/>
 <EnumValue value="NI" display_value="Nicaragua"/>
-<EnumValue value="BL" display_value="Saint Barthélemy"/>
+<EnumValue value="BL" display_value="Saint BarthÃ©lemy"/>
 <EnumValue value="TL" display_value="Timor-Leste"/>
 <EnumValue value="RS" display_value="Serbia"/>
 <EnumValue value="ME" display_value="Montenegro"/>
-<EnumValue value="AX" display_value="Åland Islands"/>
+<EnumValue value="AX" display_value="Ã…land Islands"/>
 <EnumValue value="GG" display_value="Guernsey"/>
 <EnumValue value="IM" display_value="Isle of Man"/>
 <EnumValue value="JE" display_value="Jersey"/>
@@ -199,14 +200,14 @@
 <EnumValue value="PR" display_value="Puerto Rico"/>
 <EnumValue value="QA" display_value="Qatar"/>
 <EnumValue value="RU" display_value="Russia"/>
-<EnumValue value="RE" display_value="Réunion"/>
+<EnumValue value="RE" display_value="RÃ©union"/>
 <EnumValue value="SH" display_value="Saint Helena, Ascension, and Tristan da Cunha"/>
 <EnumValue value="LC" display_value="Saint Lucia"/>
 <EnumValue value="PM" display_value="Saint Pierre and Miquelon"/>
 <EnumValue value="VC" display_value="Saint Vincent and the Grenadines"/>
 <EnumValue value="WS" display_value="Samoa"/>
 <EnumValue value="SM" display_value="San Marino"/>
-<EnumValue value="ST" display_value="São Tomé and Príncipe"/>
+<EnumValue value="ST" display_value="SÃ£o TomÃ© and PrÃ­ncipe"/>
 <EnumValue value="SA" display_value="Saudi Arabia"/>
 <EnumValue value="SN" display_value="Senegal"/>
 <EnumValue value="SC" display_value="Seychelles"/>
@@ -464,15 +465,15 @@ var popupFirstName = ""; // establish global variable to compare later
 function displayNearby(sciname,comname){
 var sciname = sciname.replace(" ","%20");
 var url="";
-if(defaultMode=="area"){url="http://ebird.org/ws1.1/data/obs/geo_spp/recent?lng=" + longitude + "&lat=" + latitude + "&sci=" + sciname + "&dist=" + radius + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;}
-if(defaultMode=="county"){url = "http://ebird.org/ws1.1/data/obs/region_spp/recent?rtype=subnational2&r=" + sub2Code + "&sci=" + sciname + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;}
-if(defaultMode=="state"){url = "http://ebird.org/ws1.1/data/obs/region_spp/recent?rtype=subnational1&r=" + sub1Code + "&sci=" + sciname + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;}
+if(defaultMode=="area"){url="http://ebird.org/ws2.0/data/obs/geo_spp/recent?lng=" + longitude + "&lat=" + latitude + "&sci=" + sciname + "&dist=" + radius + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;}
+if(defaultMode=="county"){url = "http://ebird.org/ws2.0/data/obs/region_spp/recent?rtype=subnational2&r=" + sub2Code + "&sci=" + sciname + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;}
+if(defaultMode=="state"){url = "http://ebird.org/ws2.0/data/obs/region_spp/recent?rtype=subnational1&r=" + sub1Code + "&sci=" + sciname + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;}
 _gel("location_div").innerHTML=comname;
 _IG_FetchXmlContent(url, callbackArea, { refreshInterval: (60) }); 
 }
 
 function displayLocation(locid,locname){
-var url="http://ebird.org/ws1.1/data/obs/loc/recent?r=" + locid + "&back=" + daysBack + "&detail=simple&includeProvisional=true&locale=" + locale;
+var url="http://ebird.org/ws2.0/data/obs/loc/recent?r=" + locid + "&back=" + daysBack + "&detail=simple&includeProvisional=true&locale=" + locale;
 _gel("location_div").innerHTML=locname;
 _IG_FetchXmlContent(url, callbackArea, { refreshInterval: (60) }); 
 } 
@@ -484,18 +485,18 @@ if(hideNavMenu==false){
   _gel("checklists").style.background="rgb(248,251,252)";
 }
 if(defaultMode=="area"){
-  var url = "http://ebird.org/ws1.1/data/obs/geo/recent?lng=" + longitude + "&lat=" + latitude + "&dist=" + radius + "&back=" + daysBack + "&locale=" + locale + "&fmt=xml";
+  var url = "http://ebird.org/ws2.0/data/obs/geo/recent?lng=" + longitude + "&lat=" + latitude + "&dist=" + radius + "&back=" + daysBack + "&locale=" + locale + "&fmt=xml";
   _gel('location_div').innerHTML = title;
   _IG_FetchXmlContent(url, callbackArea, { refreshInterval: (60) });
 }
 if(sub1Code!="undefined"&&sub1Code!=null&&sub1Code!=""){
 if(defaultMode=="state"){
-var url="http://ebird.org/ws1.1/data/obs/region/recent?rtype=subnational1&r=" + sub1Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
+var url="http://ebird.org/ws2.0/data/obs/region/recent?rtype=subnational1&r=" + sub1Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
 _gel('location_div').innerHTML = regionName + ", " + countryCode;
 _IG_FetchXmlContent(url, callbackArea, { refreshInterval: (60) }); 
 }
 else if(defaultMode=="county"){
-var url = "http://ebird.org/ws1.1/data/obs/region/recent?rtype=subnational2&r=" + sub2Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
+var url = "http://ebird.org/ws2.0/data/obs/region/recent?rtype=subnational2&r=" + sub2Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
 _gel('location_div').innerHTML = districtName + ", " + sub1Code.substring(3,5); 
 _IG_FetchXmlContent(url, callbackArea, { refreshInterval: (60) }); 
 }
@@ -505,7 +506,7 @@ else if(defaultMode=="county"||defaultMode=="state"){displayCounty();}
 
 function displayCounty(){
 _gel("location_div").innerHTML="Loading Sightings";
-var url = "http://ebird.org/ws1.1/ref/location/find?rtype=subnational1&match=" + regionName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
+var url = "http://ebird.org/ws2.0/ref/location/find?rtype=subnational1&match=" + regionName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
 _IG_FetchXmlContent(url, callbackSubnational1CodeCounty, { refreshInterval: (60) });
 }
 function callbackSubnational1CodeCounty(response){
@@ -517,11 +518,11 @@ for(var i = 0;i<itemList.length; i++){
   }
 }
 if(defaultMode=="county"){ 
-var url = "http://ebird.org/ws1.1/ref/location/find?rtype=subnational2&match=" + districtName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
+var url = "http://ebird.org/ws2.0/ref/location/find?rtype=subnational2&match=" + districtName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
 _IG_FetchXmlContent(url, callbackCodes, { refreshInterval: (60) }); 
 }
 if(defaultMode=="state"){
-var url="http://ebird.org/ws1.1/data/obs/region/recent?rtype=subnational1&r=" + sub1Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
+var url="http://ebird.org/ws2.0/data/obs/region/recent?rtype=subnational1&r=" + sub1Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
 _gel('location_div').innerHTML = regionName + ", " + countryCode;
 _IG_FetchXmlContent(url, callbackArea, { refreshInterval: (60) });
 }
@@ -534,7 +535,7 @@ function callbackCodes(response){
      if(d[k].sub1==sub1Code&&d[k].value==districtName){sub2Code = d[k].sub2;}
     }
   }
-  var url = "http://ebird.org/ws1.1/data/obs/region/recent?rtype=subnational2&r=" + sub2Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
+  var url = "http://ebird.org/ws2.0/data/obs/region/recent?rtype=subnational2&r=" + sub2Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
   _gel('location_div').innerHTML = districtName + ", " + sub1Code.substring(3,5); 
   _IG_FetchXmlContent(url, callbackArea, { refreshInterval: (60) });
 }
@@ -548,24 +549,24 @@ if(hideNavMenu==false){
   _gel("checklists").style.background="rgb(248,251,252)";
 }
 if(defaultMode=="area"){
-var url = "http://ebird.org/ws1.1/data/notable/geo/recent?lng=" + longitude + "&lat=" + latitude + "&dist=" + radius + "&back=" + daysBack + "&detail=full&locale=" + locale;
+var url = "http://ebird.org/ws2.0/data/notable/geo/recent?lng=" + longitude + "&lat=" + latitude + "&dist=" + radius + "&back=" + daysBack + "&detail=full&locale=" + locale;
 _gel('location_div').innerHTML = title;
 _IG_FetchXmlContent(url, callbackRarities, { refreshInterval: (60) }); 
 }
 if(sub1Code!="undefined"&&sub1Code!=null&&sub1Code!=""){
 if(defaultMode=="state"){
-var url = "http://ebird.org/ws1.1/data/notable/region/recent?rtype=subnational1&r=" + sub1Code + "&detail=full&back=" + daysBack + "&locale=" + locale + "&fmt=xml";
+var url = "http://ebird.org/ws2.0/data/notable/region/recent?rtype=subnational1&r=" + sub1Code + "&detail=full&back=" + daysBack + "&locale=" + locale + "&fmt=xml";
 _gel("location_div").innerHTML = regionName + ", " + countryCode;
 _IG_FetchXmlContent(url, callbackRarities, { refreshInterval: (60) }); 
 }
 else if(defaultMode=="county"){
-var url = "http://ebird.org/ws1.1/data/notable/region/recent?rtype=subnational2&r=" + sub2Code + "&detail=full&back=" + daysBack + "&locale=" + locale + "&fmt=xml";
+var url = "http://ebird.org/ws2.0/data/notable/region/recent?rtype=subnational2&r=" + sub2Code + "&detail=full&back=" + daysBack + "&locale=" + locale + "&fmt=xml";
 _gel('location_div').innerHTML = districtName + ", " + sub1Code.substring(3,5);
 _IG_FetchXmlContent(url, callbackRarities, { refreshInterval: (60) }); }
 }
 else if(defaultMode=="county"||defaultMode=="state"){
  _gel("location_div").innerHTML="Loading Rarities";
-var url = "http://ebird.org/ws1.1/ref/location/find?rtype=subnational1&match=" + regionName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
+var url = "http://ebird.org/ws2.0/ref/location/find?rtype=subnational1&match=" + regionName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
 _IG_FetchXmlContent(url, callbackSubnational1CodeRarity, { refreshInterval: (60) }); 
 }
 } 
@@ -579,11 +580,11 @@ for(var i = 0;i<itemList.length; i++){
   }
 } 
 if(defaultMode=="county"){
-var url = "http://ebird.org/ws1.1/ref/location/find?rtype=subnational2&match=" + districtName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
+var url = "http://ebird.org/ws2.0/ref/location/find?rtype=subnational2&match=" + districtName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
 _IG_FetchXmlContent(url, callbackCodesRarity, { refreshInterval: (60) }); 
 }
 if(defaultMode=="state"){
-var url = "http://ebird.org/ws1.1/data/notable/region/recent?rtype=subnational1&r=" + sub1Code + "&detail=full&back=" + daysBack + "&locale=" + locale + "&fmt=xml";
+var url = "http://ebird.org/ws2.0/data/notable/region/recent?rtype=subnational1&r=" + sub1Code + "&detail=full&back=" + daysBack + "&locale=" + locale + "&fmt=xml";
 _gel("location_div").innerHTML = regionName + ", " + countryCode;
 _IG_FetchXmlContent(url, callbackRarities, { refreshInterval: (60) }); 
 } 
@@ -596,7 +597,7 @@ function callbackCodesRarity(response){
      if(d[k].sub1==sub1Code&&d[k].value==districtName){sub2Code = d[k].sub2;}
     }
   }
-var url = "http://ebird.org/ws1.1/data/notable/region/recent?rtype=subnational2&r=" + sub2Code + "&detail=full&back=" + daysBack + "&locale=" + locale + "&fmt=xml";
+var url = "http://ebird.org/ws2.0/data/notable/region/recent?rtype=subnational2&r=" + sub2Code + "&detail=full&back=" + daysBack + "&locale=" + locale + "&fmt=xml";
 _gel('location_div').innerHTML = districtName + ", " + sub1Code.substring(3,5);
  _IG_FetchXmlContent(url, callbackRarities, { refreshInterval: (60) });
 }
@@ -620,16 +621,16 @@ _gel("sightings").style.background="rgb(248,251,252)";
 if(checklists.length==0){
 _gel('content_div').innerHTML="<div style='position:absolute;width:100%;top:100px;text-align:center;font-family:calibri;'><img src='https://lh5.googleusercontent.com/-vMBrUl91FcA/T8jSnroaQuI/AAAAAAAAAp4/djSHKDYwFvM/s32/downloading.gif' /><br /><br /><span id='textupdate' style='font-family:calibri;'>Download<br />Initializing</span><br /><br /><center><div id='progress_bar'><div id='progress_meter'></div></div></center></div>";
 if(defaultMode=="area"){
-var url="http://ebird.org/ws1.1/data/obs/geo/recent?lng=" + longitude + "&lat=" + latitude + "&dist=" + radius + "&back=" + daysBack + "&locale=" + locale + "&fmt=xml";
+var url="http://ebird.org/ws2.0/data/obs/geo/recent?lng=" + longitude + "&lat=" + latitude + "&dist=" + radius + "&back=" + daysBack + "&locale=" + locale + "&fmt=xml";
 _IG_FetchXmlContent(url, checklistArea2, { refreshInterval: (60) });
 }
 if(sub1Code!="undefined"&&sub1Code!=null&&sub1Code!=""){
 if(defaultMode=="state"){
-var url="http://ebird.org/ws1.1/data/obs/region/recent?rtype=subnational1&r=" + sub1Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
+var url="http://ebird.org/ws2.0/data/obs/region/recent?rtype=subnational1&r=" + sub1Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
 _IG_FetchXmlContent(url, checklistArea2, { refreshInterval: (60) });
 }
 else if(defaultMode=="county"){
-var url = "http://ebird.org/ws1.1/data/obs/region/recent?rtype=subnational2&r=" + sub2Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
+var url = "http://ebird.org/ws2.0/data/obs/region/recent?rtype=subnational2&r=" + sub2Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
 _IG_FetchXmlContent(url, checklistArea2, { refreshInterval: (60) });
 }
 else if(defaultMode=="county"||defaultMode=="state"){checklistCodeFunctions();}
@@ -640,7 +641,7 @@ else{_gel("content_div").innerHTML=mainChecklistDisplay;}
 
 function checklistCodeFunctions(){
 _gel("location_div").innerHTML="Loading Checklists";
-var url = "http://ebird.org/ws1.1/ref/location/find?rtype=subnational1&match=" + regionName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
+var url = "http://ebird.org/ws2.0/ref/location/find?rtype=subnational1&match=" + regionName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
 _IG_FetchXmlContent(url, callbackSubnational1CodeChecklist, { refreshInterval: (60) });
 }
 function callbackSubnational1CodeChecklist(response){
@@ -652,11 +653,11 @@ for(var i = 0;i<itemList.length; i++){
   }
 }
 if(defaultMode=="county"){ 
-var url = "http://ebird.org/ws1.1/ref/location/find?rtype=subnational2&match=" + districtName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
+var url = "http://ebird.org/ws2.0/ref/location/find?rtype=subnational2&match=" + districtName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
 _IG_FetchXmlContent(url, callbackCodesChecklist, { refreshInterval: (60) }); 
 }
 if(defaultMode=="state"){
-var url="http://ebird.org/ws1.1/data/obs/region/recent?rtype=subnational1&r=" + sub1Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
+var url="http://ebird.org/ws2.0/data/obs/region/recent?rtype=subnational1&r=" + sub1Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
 _IG_FetchXmlContent(url, checklistArea2, { refreshInterval: (60) });
 }
 }
@@ -668,7 +669,7 @@ function callbackCodesChecklist(response){
      if(d[k].sub1==sub1Code&&d[k].value==districtName){sub2Code = d[k].sub2;}
     }
   }
-  var url = "http://ebird.org/ws1.1/data/obs/region/recent?rtype=subnational2&r=" + sub2Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
+  var url = "http://ebird.org/ws2.0/data/obs/region/recent?rtype=subnational2&r=" + sub2Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
   _IG_FetchXmlContent(url, checklistArea2, { refreshInterval: (60) });
 }
 
@@ -734,9 +735,9 @@ for(var i = 0; i < itemList.length; i++){
 var d = getData(itemList.item(i));
 var sciname = d["sci-name"];
 var scientificname = sciname.replace(" ","%20");
-if(defaultMode=="area"){var url="http://ebird.org/ws1.1/data/obs/geo_spp/recent?lng=" + longitude + "&lat=" + latitude + "&sci=" + scientificname + "&dist=" + radius + "&back=" + daysBack + "&fmt=xml&includeProvisional=true&locale=" + locale;}
-if(defaultMode=="county"){var url="http://ebird.org/ws1.1/data/obs/region_spp/recent?rtype=subnational2&r=" + sub2Code + "&sci=" + scientificname + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;}
-if(defaultMode=="state"){var url="http://ebird.org/ws1.1/data/obs/region_spp/recent?rtype=subnational1&r=" + sub1Code + "&sci=" + scientificname + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;}
+if(defaultMode=="area"){var url="http://ebird.org/ws2.0/data/obs/geo_spp/recent?lng=" + longitude + "&lat=" + latitude + "&sci=" + scientificname + "&dist=" + radius + "&back=" + daysBack + "&fmt=xml&includeProvisional=true&locale=" + locale;}
+if(defaultMode=="county"){var url="http://ebird.org/ws2.0/data/obs/region_spp/recent?rtype=subnational2&r=" + sub2Code + "&sci=" + scientificname + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;}
+if(defaultMode=="state"){var url="http://ebird.org/ws2.0/data/obs/region_spp/recent?rtype=subnational1&r=" + sub1Code + "&sci=" + scientificname + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;}
 progress=4;
 _gel('progress_meter').style.width=progress + "%"; 
 _IG_FetchXmlContent(url, checklistArea3, { refreshInterval: (0) });
@@ -765,7 +766,7 @@ for(f=0;f<itemList.length;f++)
      else if(i==genchecklists.length&&present_in_array=="no")
       {
        genchecklists.push(d["loc-id"]+d["obs-dt"]+d["first-name"]+d["last-name"]);
-       var url = "http://ebird.org/ws1.1/data/obs/loc_spp/recent?r="+d["loc-id"]+"&sci="+d["sci-name"].replace(" ","%20")+"&back="+daysBack+"&fmt=xml&detail=full&includeProvisional=true&locale=" + locale;
+       var url = "http://ebird.org/ws2.0/data/obs/loc_spp/recent?r="+d["loc-id"]+"&sci="+d["sci-name"].replace(" ","%20")+"&back="+daysBack+"&fmt=xml&detail=full&includeProvisional=true&locale=" + locale;
       _IG_FetchXmlContent(url, getToArray, { refreshInterval: (0) }); 
       break;
       }
@@ -1057,10 +1058,10 @@ _gel("popup_box_background").style.visibility="visible";
 _gel("popup_box_loading").style.visibility="visible";
 var sciname = sciname.replace(" ","%20");
 if(rare=="true"){
-var url = "http://ebird.org/ws1.1/data/notable/loc/recent?r=" + locid + "&sci=" + sciname + "&back=" + daysBack + "&fmt=xml&detail=full&includeProvisional=true&locale=" + locale;
+var url = "http://ebird.org/ws2.0/data/notable/loc/recent?r=" + locid + "&sci=" + sciname + "&back=" + daysBack + "&fmt=xml&detail=full&includeProvisional=true&locale=" + locale;
 }
 if(rare=="false"){
-var url = "http://ebird.org/ws1.1/data/obs/loc_spp/recent?r=" + locid + "&sci=" + sciname + "&back=" + daysBack + "&fmt=xml&detail=full&includeProvisional=true&locale=" + locale; 
+var url = "http://ebird.org/ws2.0/data/obs/loc_spp/recent?r=" + locid + "&sci=" + sciname + "&back=" + daysBack + "&fmt=xml&detail=full&includeProvisional=true&locale=" + locale; 
 }
 
 _IG_FetchXmlContent(url, callbackPopup, { refreshInterval: (0) });
