@@ -518,7 +518,7 @@ for(var i = 0;i<itemList.length; i++){
   }
 }
 if(defaultMode=="county"){ 
-var url = "http://ebird.org/ws2.0/ref/location/find?rtype=subnational2&match=" + districtName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
+var url = "http://ebird.org/ws2.0/ref/region/list/subnational2/US-MI&fmt=xml";
 _IG_FetchXmlContent(url, callbackCodes, { refreshInterval: (60) }); 
 }
 if(defaultMode=="state"){
