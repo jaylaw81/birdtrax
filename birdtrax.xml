@@ -496,7 +496,7 @@ _gel('location_div').innerHTML = regionName + ", " + countryCode;
 _IG_FetchXmlContent(url, callbackArea, { refreshInterval: (60) }); 
 }
 else if(defaultMode=="county"){
-var url = "http://ebird.org/ws2.0/data/obs/region/recent?rtype=subnational2&r=" + sub2Code + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
+var url = "http://ebird.org/ws2.0/ref/region/list/subnational2/US-MI&fmt=xml" + "&back=" + daysBack + "&includeProvisional=true&locale=" + locale;
 _gel('location_div').innerHTML = districtName + ", " + sub1Code.substring(3,5); 
 _IG_FetchXmlContent(url, callbackArea, { refreshInterval: (60) }); 
 }
@@ -580,7 +580,7 @@ for(var i = 0;i<itemList.length; i++){
   }
 } 
 if(defaultMode=="county"){
-var url = "http://ebird.org/ws2.0/ref/location/find?rtype=subnational2&match=" + districtName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
+var url = "http://ebird.org/ws2.0/ref/region/list/subnational2/US-MI&fmt=xml";
 _IG_FetchXmlContent(url, callbackCodesRarity, { refreshInterval: (60) }); 
 }
 if(defaultMode=="state"){
@@ -641,7 +641,7 @@ else{_gel("content_div").innerHTML=mainChecklistDisplay;}
 
 function checklistCodeFunctions(){
 _gel("location_div").innerHTML="Loading Checklists";
-var url = "http://ebird.org/ws2.0/ref/location/find?rtype=subnational1&match=" + regionName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
+var url = "http://ebird.org/ws2.0/ref/region/list/subnational2/US-MI&fmt=xml";
 _IG_FetchXmlContent(url, callbackSubnational1CodeChecklist, { refreshInterval: (60) });
 }
 function callbackSubnational1CodeChecklist(response){
@@ -653,7 +653,7 @@ for(var i = 0;i<itemList.length; i++){
   }
 }
 if(defaultMode=="county"){ 
-var url = "http://ebird.org/ws2.0/ref/location/find?rtype=subnational2&match=" + districtName.replace(" ","%20") + "&locale=" + locale + "&fmt=xml";
+var url = "http://ebird.org/ws2.0/ref/region/list/subnational2/US-MI&fmt=xml";
 _IG_FetchXmlContent(url, callbackCodesChecklist, { refreshInterval: (60) }); 
 }
 if(defaultMode=="state"){
